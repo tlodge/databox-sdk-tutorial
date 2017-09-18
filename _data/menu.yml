@@ -1,0 +1,33 @@
+- title: "overview"
+  subcategories:
+    - subtitle: "databox overview"
+      subhref: "/overview/databox.html"
+    - subtitle: "sdk overview"
+      subhref: "/overview/sdk.html"
+
+- title: "getting started"
+  subcategories:
+    - subtitle: "quick start"
+      subhref: "#"
+    - subtitle: "installing databox"
+      subhref: "#"
+    - subtitle: "installing the sdk"
+      subhref: "#"
+
+- title: "sdk walk-through"
+  subcategories:
+    - subtitle: "datasources, processors and apps"
+      subhref: "#"
+    - subtitle: "working with functions"
+      subhref: "#"
+    - subtitle: "my first app"
+      subhref: "#"
+
+- title: "sdk tutorials"
+  subcategories:
+    - subtitle: "clap for light app"
+      subhref: "#"
+    - subtitle: "a visualisation app"
+      subhref: "#"
+    - subtitle: "a face recognition app"
+      subhref: "#"
