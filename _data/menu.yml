@@ -25,9 +25,11 @@
 
 - title: "sdk tutorials"
   subcategories:
+    - subtitle: "system monitor"
+      subhref: "#"
     - subtitle: "clap for light app"
       subhref: "#"
-    - subtitle: "a visualisation app"
+    - subtitle: "doomsday clock"
       subhref: "#"
     - subtitle: "a face recognition app"
       subhref: "#"

@@ -1,7 +1,16 @@
 ---
 layout: home
 ---
-# sdk overview
+
+
+## sdk overview
+
+<figure class="figure">
+  <img src="/images/workflow.svg" class="img-fit-contain" alt="databox sdk">
+  <figcaption class="figure-caption text-center">databox app workflow</figcaption>
+</figure>
+
+
 
 What follows is an overview of the sdk, and the features it provides for app development.  It is worth noting from the outset that the SDK is no silver bullet; it is well suited to building lightweight apps that operate on data to perform actuation or data visualisation; more complex apps (e.g. those that require significant user interaction, or complex data processing) will inevitably require developers to fall back to text editors and raw code; there are good examples of databox apps written in a variety of languages at the main [databox repo](https://github.com/me-box)
 
@@ -17,10 +26,6 @@ We are not presecriptive about the language that an app is written in, only that
 
 The  end-to-end databox app workflow process can be broken down into several stages:
 
-<figure class="figure">
-  <img src="/images/workflow.svg" class="img-fit-contain" alt="databox sdk">
-  <figcaption class="figure-caption text-center">databox app workflow</figcaption>
-</figure>
 
 The SDK is principally concerned with the first 5 i.e:
 

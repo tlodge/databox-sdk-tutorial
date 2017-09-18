@@ -115,11 +115,15 @@
         <ul class="menu menu-nav">
           
           <li class="menu-item">
+            <a href="#">system monitor</a>
+          </li>
+          
+          <li class="menu-item">
             <a href="#">clap for light app</a>
           </li>
           
           <li class="menu-item">
-            <a href="#">a visualisation app</a>
+            <a href="#">doomsday clock</a>
           </li>
           
           <li class="menu-item">
@@ -151,7 +155,12 @@
                 
                   <div class="column col-12">
                     <div class="content">
-                      <h1 id="sdk-overview">sdk overview</h1>
+                      <h2 id="sdk-overview">sdk overview</h2>
+
+<figure class="figure">
+  <img src="/images/workflow.svg" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">databox app workflow</figcaption>
+</figure>
 
 <p>What follows is an overview of the sdk, and the features it provides for app development.  It is worth noting from the outset that the SDK is no silver bullet; it is well suited to building lightweight apps that operate on data to perform actuation or data visualisation; more complex apps (e.g. those that require significant user interaction, or complex data processing) will inevitably require developers to fall back to text editors and raw code; there are good examples of databox apps written in a variety of languages at the main <a href="https://github.com/me-box">databox repo</a></p>
 
@@ -168,11 +177,6 @@
 We are not presecriptive about the language that an app is written in, only that it conforms to the databox apis for reading and writing from/to datastores.  All databox apps are run inside docker containers connected to a network that appropriately restricts interaction with other databox components.</p>
 
 <p>The  end-to-end databox app workflow process can be broken down into several stages:</p>
-
-<figure class="figure">
-  <img src="/images/workflow.svg" class="img-fit-contain" alt="databox sdk" />
-  <figcaption class="figure-caption text-center">databox app workflow</figcaption>
-</figure>
 
 <p>The SDK is principally concerned with the first 5 i.e:</p>
 
