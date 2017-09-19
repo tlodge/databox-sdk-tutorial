@@ -21,8 +21,8 @@ There isn't all that much to a databox app.  It is simply:
 1. some executable code that interacts with components on a databox to perform a task.
 2. a manifest file that describes the app and specifies the datastores that it requires access to.
 
-A datastore is anything that creates data e.g: iot devices such as smartplugs or bulbs, social media data feeds, system logs, webcam images and so on.  
-We are not presecriptive about the language that an app is written in, only that it conforms to the databox apis for reading and writing from/to datastores.  All databox apps are run inside docker containers connected to a network that appropriately restricts interaction with other databox components.  
+A datasource is anything that creates data e.g: iot devices such as smartplugs or bulbs, social media data feeds, system logs, webcam images and so on.  
+We are not presecriptive about the language that an app is written in, only that it conforms to the databox apis for registering with the system and reading and writing from/to datastores.  All databox apps are run inside docker containers connected to a network that appropriately restricts interaction with other databox components.  
 
 The  end-to-end databox app workflow process can be broken down into several stages:
 
