@@ -4,7 +4,7 @@ layout: home
 # databox overview
 
 <figure class="figure">
-  <img src="/images/databoxoverview.svg" class="img-fit-contain" alt="databox sdk">
+  <img src="/images/overview/databoxoverview.svg" class="img-fit-contain" alt="databox sdk">
   <figcaption class="figure-caption text-center">databox app workflow</figcaption>
 </figure>
 

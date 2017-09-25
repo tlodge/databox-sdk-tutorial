@@ -6,7 +6,7 @@ layout: home
 ## sdk overview
 
 <figure class="figure">
-  <img src="/images/workflow.svg" class="img-fit-contain" alt="databox sdk">
+  <img src="/images/overview/workflow.svg" class="img-fit-contain" alt="databox sdk">
   <figcaption class="figure-caption text-center">databox app workflow</figcaption>
 </figure>
 

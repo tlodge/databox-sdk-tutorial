@@ -4,6 +4,24 @@
   content: "0.4.1";
 }
 
+.panel .panel-body {
+  overflow-y: hidden;
+}
+
+.panel {
+  background:#444351; 
+  color: white; 
+  max-height: 370px;
+}
+
+.tutorialcontent h4{
+  margin-bottom: 1em;
+}
+.tutorialcontent{
+  margin-top: 15px;
+      font-size: 1.1em;
+    line-height: 2.1em;
+}
 .jumbo {
   background:  url("/images/editor.svg") bottom center no-repeat;
   height: 500px;
@@ -18,7 +36,7 @@
 }
 
 .content {
-  margin-top: 50px;
+  margin-top: 70px;
   margin-left: 10px;
 }
 /* Spectre New Docs */

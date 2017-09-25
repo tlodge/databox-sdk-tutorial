@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="https://github.com/me-box">
+  <title>Tutorial - light gauge tutorial</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/spectre.min.css">
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body>
+
+<div class="s-container container">
+    <div class="columns">
+      
+
+      <div id="sidebar" class="s-sidebar">
+
+        <div class="s-brand">
+          <a href="index.html" class="s-logo">
+             <img src="/images/logo.svg" alt="databox sdk">
+            <h2>light gauge tutorial</h2>
+          </a>
+        </div>
+
+        <div class="s-nav">
+          <div class="accordion-container">
+             
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-overview" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-overview">
+         overview
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="/overview/databox.html">databox overview</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="/overview/sdk.html">sdk overview</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-getting started" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-getting started">
+         getting started
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="#">quick start</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">installing databox</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">installing the sdk</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-sdk walk-through" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-sdk walk-through">
+         sdk walk-through
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="#">datasources, processors and apps</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">data types and schemas</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">working with functions</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">my first app</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-sdk tutorials" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-sdk tutorials">
+         sdk tutorials
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="/tutorials/gauge/">light gauge</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">clap for light app</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">doomsday clock</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">a face recognition app</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+          </div>
+        </div>
+
+      </div> <!--sidebar -->
+
+      <a href="#sidebar-close" id="sidebar-close" class="docs-nav-clear"></a>
+      <div class="s-navbar">
+     
+        <div class="float-btn">
+          <a href="https://github.com/me-box" target="_blank" class="btn btn-primary">GitHub</a>
+        </div>
+      </div>
+
+     
+        <div class="container">
+
+          <div class="content">
+            <div class="columns">
+              
+              
+
+              <div class="column col-4">
+                <div class="panel">
+                  <div class="panel-header">
+                    <div class="panel-title"><h4>light gauge tutorial</h4></div>
+                  </div>
+                  
+
+                  <div class="panel-body">
+                    <dl>
+                      <dt>datasources</dt>
+                      <dd>sensingkit</dd>
+                      <dt>coding required</dt>
+                      <dd>none</dd>
+                      <dt>skills learnt</dt>
+                      <dd>basic visualisation</dd>
+                      <dt>approximate duration</dt>
+                      <dd>10 minutes</dd>
+                    </dl>
+                  </div>
+
+
+                  <div class="panel-footer">
+                  
+                  </div>
+                </div>
+              </div>
+
+              <div class="column col-8">
+                  <img src="/images/tutorial/gauge/gauge.svg" height="370px"/>
+              </div>
+            </div>
+            
+            <div class="columns">
+              <div class="column col-12">
+                  <div class="tutorialcontent">
+                    <p>This tutorial will show you how to build a simple light monitor.  It will take the light sensor reading from a phone running sensingkit (i.e a phone with the databox app installed), and it will move the pointer in a dial in response to changing readings.  Before you start, make sure you are logged in to the sdk, by going to [sdkurl]/login.  If you are not logged in you will be unable to save your work.</p>
+
+<h4 id="1-connect-the-nodes-together">1. connect the nodes together</h4>
+
+<p>Connect the sensing kit node (yellow datasource) to the uibuilder node (blue processor) to the app output node (orange output).  So data will flow from sensingkit, will be turned into a visualisation and then displayed on a screen in the app.</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/step1.svg" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step one: connect the nodes together</figcaption>
+</figure>
+
+<h4 id="2-choose-light-as-the-sensing-type">2. choose ‘light’ as the sensing type</h4>
+
+<p>Double click on the sensingkit node.  You will be presented with a dialogue:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/sensingkitdialogue.png" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step two: choose sensingkit's light sensor</figcaption>
+</figure>
+
+<p>Select ‘light’ (if not already selected) and <strong>optionally</strong> in the ‘name’ field, provide a name such as <i>light sensor</i>.  Note that when you click on close, the details about the sensor are displayed at the bottom.  The description gives handy info about the range of values that teh sensor will output, under which conditions.</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/sensingkitdescription.png" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step two: lux output values</figcaption>
+</figure>
+
+<h4 id="3-attach-the-outputs-from-the-light-sensor-to-a-visualisation">3. attach the outputs from the light sensor to a visualisation</h4>
+
+<p>We’re almost done!  The final bit is to connect the light value to an object in a visualisation.  This is where the uibuilder node comes in.  Double click it and you will be faced with a blank canvas.  We’ve created a range of images that can be used in your visualisation.  Click on the <img src="/images/tutorial/gauge/librarybutton.png" style="display:inline-block; width: 30px" /> image:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/uibuilderblank.png" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step three: uibuilder</figcaption>
+</figure>
+
+<p>Now drag the gauge and the pointer image onto the center of the canvas.</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/uibuildergauge.png" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step three: add artwork</figcaption>
+</figure>
+
+<p>And add a mapping from value to rotation for the pointer</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/mapperpanel.png" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step three: map value to rotation</figcaption>
+</figure>
+
+<p>Now run a test to see what happens</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/gauge/transformerdialogue.png" class="img-fit-contain" alt="databox sdk" />
+  <figcaption class="figure-caption text-center">step three: adjust rotation</figcaption>
+</figure>
+
+<p>what are the parameters passed in to the transformer?</p>
+
+                  </div>
+              </div>
+            </div>
+
+
+            <footer class="s-footer">
+              <p><a href="https://github.com/me-box" target="_blank">GitHub</a></p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div> <!-- container-->
+  </div> <!-- columns -->
+   
+</body>
+</html>

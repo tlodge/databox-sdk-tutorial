@@ -18,6 +18,8 @@
   subcategories:
     - subtitle: "datasources, processors and apps"
       subhref: "#"
+    - subtitle: "data types and schemas"
+      subhref: "#"
     - subtitle: "working with functions"
       subhref: "#"
     - subtitle: "my first app"
@@ -25,8 +27,8 @@
 
 - title: "sdk tutorials"
   subcategories:
-    - subtitle: "system monitor"
-      subhref: "#"
+    - subtitle: "light gauge"
+      subhref: "/tutorials/gauge/"
     - subtitle: "clap for light app"
       subhref: "#"
     - subtitle: "doomsday clock"
