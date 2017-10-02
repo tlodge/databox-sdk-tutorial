@@ -16,21 +16,19 @@
 
 - title: "sdk walk-through"
   subcategories:
-    - subtitle: "datasources, processors and apps"
-      subhref: "#"
+    - subtitle: "datasources, processors and outputs"
+      subhref: "/walkthrough/nodes"
     - subtitle: "data types and schemas"
-      subhref: "#"
+      subhref: "/walkthrough/data"
     - subtitle: "working with functions"
-      subhref: "#"
-    - subtitle: "my first app"
-      subhref: "#"
+      subhref: "/walkthrough/functions"
 
 - title: "sdk tutorials"
   subcategories:
+    - subtitle: "flash bulbs"
+      subhref: "/tutorials/bulb/"
     - subtitle: "light gauge"
       subhref: "/tutorials/gauge/"
-    - subtitle: "clap for light app"
-      subhref: "#"
     - subtitle: "doomsday clock"
       subhref: "#"
     - subtitle: "a face recognition app"

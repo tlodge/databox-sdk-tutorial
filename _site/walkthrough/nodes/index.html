@@ -155,8 +155,41 @@
                 
                   <div class="column col-12">
                     <div class="content">
-                      <h3 id="installing">installing</h3>
-<p>stuff on installing the sdk and dependencies</p>
+                      <h4 id="datasources-processors-and-outputs">datasources, processors and outputs</h4>
+
+<p>Out of the box the sdk gives you several ‘nodes’ that you can use to construct your apps.</p>
+
+<ul>
+  <li>Datasources</li>
+</ul>
+
+<p>Will typically just have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to emit, for example, accelerometer, light, audio, bluetooth data.  The data schema will vary according to the way a datasource is configured.</p>
+
+<ul>
+  <li>Processors</li>
+</ul>
+
+<p>Act upon data, usually to transform it in some way.  For example the ‘chartify’ processor will take input data and format into x and y values to render to a chart.  The ‘extract’ processor will extract a set of attributes from data.  The most general-purpose processor is a dbfunction (databox function), which allows a developer to write javascript code and import npm libraries to process data.  We provide much more information on writing dbfunctions <a href="/walkthrough/functions">here</a></p>
+
+<ul>
+  <li>Outputs</li>
+</ul>
+
+<p>These are typically nodes at the end of a flow; they perform some kind of effect, such as actuation, visualisation or communication.  We currently support a limited set of output nodes; anything that needs to output data (charts, visulisations, html, text) will use the ‘app’ node.  If you want to actuate <a href="https://www.philips.co.uk/c-m-li/hue">philips hue bulbs</a>, you can use the bulbsout node, and if you want to turn smart plugs on/off you can use the plugout output which works with <a href="http://uk.tp-link.com/products/details/cat-5258_HS100.html">tplink smart plugs</a>.</p>
+
+<p>There are also a couple of special nodes that do not fit into the categories above:</p>
+
+<ul>
+  <li>inject</li>
+</ul>
+
+<p>This most closely resembles a datastore; it can be use to one-off or peridoic events, perhaps to kick start an app or undertake a periodic task.</p>
+
+<ul>
+  <li>debugger</li>
+</ul>
+
+<p>This is a node that is used during testing; it allows a developer to inspect the data output from a node; the all debugger nodes are automatically stripped out when an app is published.</p>
 
                     </div>
                   </div>

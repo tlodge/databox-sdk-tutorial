@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="https://github.com/me-box">
+  <title>Tutorial - hue bulbs tutorial</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/spectre.min.css">
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body>
+
+<div class="s-container container">
+    <div class="columns">
+      
+
+      <div id="sidebar" class="s-sidebar">
+
+        <div class="s-brand">
+          <a href="index.html" class="s-logo">
+             <img src="/images/logo.svg" alt="databox sdk">
+            <h2>hue bulbs tutorial</h2>
+          </a>
+        </div>
+
+        <div class="s-nav">
+          <div class="accordion-container">
+             
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-overview" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-overview">
+         overview
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="/overview/databox.html">databox overview</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="/overview/sdk.html">sdk overview</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-getting started" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-getting started">
+         getting started
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="#">quick start</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">installing databox</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">installing the sdk</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-sdk walk-through" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-sdk walk-through">
+         sdk walk-through
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="/walkthrough/nodes">datasources, processors and outputs</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="/walkthrough/data">data types and schemas</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="/walkthrough/functions">working with functions</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+  
+    <div class="accordion">
+      <input type="checkbox" id="docs-accordion-sdk tutorials" name="docs-accordion-checkbox" hidden checked>
+      <label class="accordion-header c-hand" for="docs-accordion-sdk tutorials">
+         sdk tutorials
+      </label>
+      <div class="accordion-body">
+        <ul class="menu menu-nav">
+          
+          <li class="menu-item">
+            <a href="/tutorials/bulb/">flash bulbs</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="/tutorials/gauge/">light gauge</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">doomsday clock</a>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#">a face recognition app</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div> <!--accordian -->
+ 
+
+          </div>
+        </div>
+
+      </div> <!--sidebar -->
+
+      <a href="#sidebar-close" id="sidebar-close" class="docs-nav-clear"></a>
+      <div class="s-navbar">
+     
+        <div class="float-btn">
+          <a href="https://github.com/me-box" target="_blank" class="btn btn-primary">GitHub</a>
+        </div>
+      </div>
+
+     
+        <div class="container">
+
+          <div class="content">
+            <div class="columns">
+              
+              
+
+              <div class="column col-4">
+                <div class="panel">
+                  <div class="panel-header">
+                    <div class="panel-title"><h4>hue bulbs tutorial</h4></div>
+                  </div>
+                  
+
+                  <div class="panel-body">
+                    <dl>
+                      <dt>datasources</dt>
+                      <dd>sensingkit</dd>
+                      <dt>coding required</dt>
+                      <dd>a little</dd>
+                      <dt>skills learnt</dt>
+                      <dd>writing a simple function, actuation</dd>
+                      <dt>approximate duration</dt>
+                      <dd>10 minutes</dd>
+                    </dl>
+                  </div>
+
+
+                  <div class="panel-footer">
+                  
+                  </div>
+                </div>
+              </div>
+
+              <div class="column col-8">
+                  <img src="/images/tutorial/bulb/bulb.svg" height="370px"/>
+              </div>
+            </div>
+            
+            <div class="columns">
+              <div class="column col-12">
+                  <div class="tutorialcontent">
+                    <p>This tutorial will show you how to write a simple function to turn a bulb on and off every second.  It will get you familiar with how functions work in the sdk.</p>
+
+<h4 id="1-connect-the-nodes-together">1. connect the nodes together</h4>
+
+<p>The best way to get started writing apps is to connect your nodes together into the high level flow.  So in this case we want to flash our bulbs every second.  So we want to use the red <strong>inject</strong> node to crete a message every second.  We want to turn that message into an instruction to turn the bulb on or off, so we connect the inject node to a <strong>dbfunction</strong> (databox function) node.  Finally we want to send that instruction to the bulb, so we connect to the <strong>bulbsout</strong> node.  It’s always useful to check that the outout from a function is as you expect, so we also connect the outoyt from dbfunction to a <strong>debug</strong> node.  Once connected up, you should have a flow as follows:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/bulb/flow.svg" class="img-fit-contain" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step one: connect the nodes together</figcaption>
+</figure>
+
+<p>Now that this is connected up, we need configure each node to do the work.</p>
+
+<h4 id="2-configure-the-nodes">2. configure the nodes</h4>
+
+<p>We have said that we want to flash the bulb on/off every second.  Double click on the red inject node.  You are presented with a configuration dialogue.  We don’t really care what kind of message the node sends, just that it sends one every second:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/bulb/inject.png" class="img-fit-contain" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step two: configure the inject node</figcaption>
+</figure>
+
+<p>Select the repeat option as interval, and leave as the default (once every second).  Click on ok.  A timestamp message will be sent to the function node every second.</p>
+
+<p>Now we need to make sure that the dbfunction node sends an on or off message each time it gets a message from the inject node.  Double click on your dbfunction node.  There’s quite a bit of information to take in here.  Because you have connected up your nodes already, the function node is able to give you information about data coming in to this node and the data expected by the nodes that it is connected to.  We’re interested in the format of the data expected by the bulbsout node.  Click on the <i>there are two recipients of data from this function (click to view)</i>.  Next to the bulb icon you’ll see a table:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/bulb/bulbschema.png" class="img-fit-contain" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step two: configure the dbfunction node</figcaption>
+</figure>
+
+<p>This tells us all we need to know about the format of the message that we need to send out from this function.  Note that to send a message from a function we just <strong>return</strong> it.  The schema is telling us that the bulbsout node expects an object with two attributes:  a type and a payload.  The type is a string that needs to be either either ‘set-bulb-on’, ‘set-bulb-hue’, ‘set-bulb-brightness’.  The format of the payload is dependent on whatever ‘type’ is chosen.  If, for example, we were to choose ‘set-bulb-on’, our payload would need to be a string that was either an “on” or an “off”.  We know that we want to set the bulb on or off. There are therefore two possible messages we might want to send:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//turn a bulb on:</span>
+<span class="p">{</span>
+	<span class="nl">type</span><span class="p">:</span> <span class="s2">"set-bulb-on"</span><span class="p">,</span>
+	<span class="nx">payload</span><span class="err">:</span> <span class="s2">"on"</span>
+<span class="p">}</span>
+<span class="c1">//turn a bulb off:</span>
+<span class="p">{</span>
+	<span class="nl">type</span><span class="p">:</span> <span class="s2">"set-bulb-on"</span><span class="p">,</span>
+	<span class="nx">payload</span><span class="err">:</span> <span class="s2">"off"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>So far so good.  However we want to alternate the message that we send, based on the current state of the bulb (i.e if it’s off, send an “on”, and if it’s on, send an “off”).  In order to do this, we need to have a little bit of state that persists between each input event.  To do this we make use of a special “context” object.  The context object allows you to store and retrieve data.  The data will persist for the duration that an app is running.  It is easy to use:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//store foo</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">,</span> <span class="nx">myvalue</span><span class="p">)</span>
+
+<span class="c1">//retrieve foo</span>
+<span class="kd">var</span> <span class="nx">myvalue</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span> <span class="o">||</span> <span class="nx">adefaultvalue</span>
+</code></pre>
+</div>
+
+<p>We now have all we need in order to write our on/off function:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//get the current state, and if it does not exist, set it to "on"</span>
+<span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"state"</span><span class="p">)</span> <span class="o">||</span>  <span class="s2">"on"</span><span class="p">;</span>
+
+<span class="c1">//update the state, if it was on, set to "off" otherwise set to "on"</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"state"</span><span class="p">,</span> <span class="nx">state</span> <span class="o">===</span> <span class="s2">"on"</span> <span class="p">?</span> <span class="s2">"off"</span><span class="p">:</span><span class="s2">"on"</span><span class="p">);</span>
+
+<span class="c1">//send our instruction to the bulb</span>
+<span class="k">return</span> <span class="p">{</span>				
+  <span class="na">type</span><span class="p">:</span><span class="s2">"set-bulb-on"</span><span class="p">,</span>
+  <span class="na">payload</span><span class="p">:</span> <span class="nx">state</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Write this in the function block and click ok.</p>
+
+<p>That’s it.  You should now have a fully working databox app that will flash a hue bulb on or off.</p>
+
+<h4 id="3-testing-our-app">3. testing our app</h4>
+
+<p>Lets convince ourselves that the app works as expected.  Remember that there are two outputs from our dbfunction: a debug node and a bulbsout node.  Click on TEST on the sdk editor toolbar.  This will trigger a test container to be built (on the server or your machine, depending on where the sdk is installed).  You should be presented with a debug and a app output node on the right hand side of the screen.  Lets look at what is being sent to the debug node:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/bulb/bulbdebug.png" class="img-fit-contain" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step three:  check dbfunction output in debugger</figcaption>
+</figure>
+
+<p>This looks pretty good.  We are seeing an alternating on or off message every second.  But wait - where is the ‘type’ bit of the message.  By default the debugger only shows the message payload.  To see the entire message, cdouble click the debug node and next to SHOW, select full message.  Now re-rerun the debugger, and you should see a fuller message:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/bulb/bulbdebugfull.png" class="img-fit-contain" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step three:  check full dbfunction output in debugger</figcaption>
+</figure>
+
+<p>Now you can see that the “type” is sent in the message along with a bunch of other parameters that are added by default to all messages.</p>
+
+<p>Finally we can check to see what happens to our bulb when the app is run.  Obviously we are not connected up to a real bulb, but the sdk can simulate it.  Click on the bulb on the right of the screen.  You should see a bulb which alternates between yellow (on) and black (off).</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/bulb/bulbonoff.png" class="img-fit-contain" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step three:  simulate the bulb </figcaption>
+</figure>
+
+
+                  </div>
+              </div>
+            </div>
+
+
+            <footer class="s-footer">
+              <p><a href="https://github.com/me-box" target="_blank">GitHub</a></p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div> <!-- container-->
+  </div> <!-- columns -->
+   
+</body>
+</html>
