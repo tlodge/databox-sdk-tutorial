@@ -1,104 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="robots" content="index, follow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="author" content="https://github.com/me-box">
-  <title>Tutorial - {{page.title}}</title>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/spectre.min.css">
-  <link rel="stylesheet" href="/css/docs.css">
-</head>
-<body>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
 
-<div class="s-container container">
-    <div class="columns">
-      
-
-      <div id="sidebar" class="s-sidebar">
-
-        <div class="s-brand">
-          <a href="index.html" class="s-logo">
-             <img src="/images/logo.svg" alt="databox sdk">
-            <h2>{{page.title}}</h2>
-          </a>
+    <div class="grid-y medium-grid-frame">
+        <!-- Start Top Bar -->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">databox</li>
+          </ul>
         </div>
-
-        <div class="s-nav">
-          <div class="accordion-container">
-            {% include menu.html %}
-          </div>
-        </div>
-
-      </div> <!--sidebar -->
-
-      <a href="#sidebar-close" id="sidebar-close" class="docs-nav-clear"></a>
-      <div class="s-navbar">
-     
-        <div class="float-btn">
-          <a href="https://github.com/me-box" target="_blank" class="btn btn-primary">GitHub</a>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><a href="#">sdk github</a></li>
+            <li><a href="#">databox github</a></li>
+            <li><a href="#">databox project</a></li>
+          </ul>
         </div>
       </div>
+      <!-- End Top Bar -->
 
-     
-        <div class="container">
-
-          <div class="content">
-            <div class="columns">
-              
-              
-
-              <div class="column col-4">
-                <div class="panel">
-                  <div class="panel-header">
-                    <div class="panel-title"><h4>{{page.title}}</h4></div>
-                  </div>
-                  
-
-                  <div class="panel-body">
-                    <dl>
-                      <dt>datasources</dt>
-                      <dd>{{page.datasources}}</dd>
-                      <dt>coding required</dt>
-                      <dd>{{page.coding}}</dd>
-                      <dt>skills learnt</dt>
-                      <dd>{{page.skills}}</dd>
-                      <dt>approximate duration</dt>
-                      <dd>{{page.duration}}</dd>
-                    </dl>
-                  </div>
-
-
-                  <div class="panel-footer">
-                  
-                  </div>
+        <div class="callout large primary">
+        <div class="row column text-center">
+          <h1>{{page.title}}</h1>
+        </div>
+      </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x fullheight" >
+          <div class="cell medium-2 medium-cell-block-y menu">
+            <div>{% include menu.html %}</div>
+          </div>
+          <div class="cell medium-10 medium-cell-block-y">
+              <div class="grid-x">
+                <div class="cell medium-12">
+                  <p class="lead">
+                     <table>
+                        <thead>
+                          <tr>
+                            <th>datasources</th>
+                            <th>coding required</th>
+                            <th>skills learnt</th>
+                            <th>approximate duration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{page.datasources}}</td>
+                            <td>{{page.coding}}</td>
+                            <td>{{page.skills}}</td>
+                            <td>{{page.duration}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </p>
+                  <hr>
                 </div>
               </div>
-
-              <div class="column col-8">
-                  <img src="{{page.image}}" height="370px"/>
+              <div class="grid-x">
+                <div class="cell medium-12">
+                  {{content}}
+                </div>
               </div>
-            </div>
-            
-            <div class="columns">
-              <div class="column col-12">
-                  <div class="tutorialcontent">
-                    {{content}}
-                  </div>
-              </div>
-            </div>
-
-
-            <footer class="s-footer">
-              <p><a href="https://github.com/me-box" target="_blank">GitHub</a></p>
-            </footer>
           </div>
         </div>
       </div>
-    </div> <!-- container-->
-  </div> <!-- columns -->
-   
-</body>
+    </div>
+  </body>
 </html>

@@ -1,8 +1,7 @@
 ---
-layout: home
+layout: base
+title: datasources, processors and outputs
 ---
-
-#### datasources, processors and outputs
 
 Out of the box the sdk gives you several 'nodes' that you can use to construct your apps. 
 

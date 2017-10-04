@@ -1,7 +1,7 @@
 ---
-layout: home
+layout: base
+title: The databox sdk
 ---
-# The databox sdk
 
 <div class="jumbo">
 	<div class="about"> 

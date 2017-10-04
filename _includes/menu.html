@@ -1,19 +1,10 @@
- {% for nav in site.data.menu %}
+{% for nav in site.data.menu %}
   {% if nav.subcategories != null %}
-    <div class="accordion">
-      <input type="checkbox" id="docs-accordion-{{nav.title}}" name="docs-accordion-checkbox" hidden checked>
-      <label class="accordion-header c-hand" for="docs-accordion-{{nav.title}}">
-         {{nav.title}}
-      </label>
-      <div class="accordion-body">
-        <ul class="menu menu-nav">
-          {% for subcategory in nav.subcategories %}
-          <li class="menu-item">
-            <a href="{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div> <!--accordian -->
- {% endif %}
+    <ul class="menu side">
+      <li class="docs-nav-title">{{nav.title}}</li>
+    {% for subcategory in nav.subcategories %}
+      <li> <a href="{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
 {% endfor %}

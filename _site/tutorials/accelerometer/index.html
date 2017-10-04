@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+
+    <div class="grid-y medium-grid-frame">
+        <!-- Start Top Bar -->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">databox</li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><a href="#">sdk github</a></li>
+            <li><a href="#">databox github</a></li>
+            <li><a href="#">databox project</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+        <div class="callout large primary">
+        <div class="row column text-center">
+          <h1>tutorial - accelerometer vapour trail</h1>
+        </div>
+      </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x fullheight" >
+          <div class="cell medium-2 medium-cell-block-y menu">
+            <div>
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">overview</li>
+    
+      <li> <a href="/overview/databox.html">databox overview</a></li>
+    
+      <li> <a href="/overview/sdk.html">sdk overview</a></li>
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">getting started</li>
+    
+      <li> <a href="/gettingstarted/quickstart">quick start</a></li>
+    
+      <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk walk-through</li>
+    
+      <li> <a href="/walkthrough/nodes">datasources, processors and outputs</a></li>
+    
+      <li> <a href="/walkthrough/data">data types and schemas</a></li>
+    
+      <li> <a href="/walkthrough/functions">working with functions</a></li>
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk tutorials</li>
+    
+      <li> <a href="/tutorials/bulb/">flash bulbs</a></li>
+    
+      <li> <a href="/tutorials/gauge/">light gauge</a></li>
+    
+      <li> <a href="/tutorials/accelerometer/">accelerometer vapour trail</a></li>
+    
+    </ul>
+  
+</div>
+          </div>
+          <div class="cell medium-10 medium-cell-block-y">
+              <div class="grid-x">
+                <div class="cell medium-12">
+                  <p class="lead">
+                     <table>
+                        <thead>
+                          <tr>
+                            <th>datasources</th>
+                            <th>coding required</th>
+                            <th>skills learnt</th>
+                            <th>approximate duration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>sensingkit</td>
+                            <td>a little</td>
+                            <td>building a visulisation, programatic creation of elements</td>
+                            <td>10 minutes</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </p>
+                  <hr>
+                </div>
+              </div>
+              <div class="grid-x">
+                <div class="cell medium-12">
+                  <p>This tutorial will guide you through more advanced features of the uibuilder node. The finished app can be found by clicking on the <i>examples</i> menu item on the sdk toolbar and selecting: <strong>databox.tutorial_accelerometer_trail</strong></p>
+
+<h4 id="1-connect-the-nodes-together">1. connect the nodes together</h4>
+
+<p>As ever, the best way to start building our app is to connect the nodes together. We will be using the <strong>sensingkit</strong> accelerometer datasource.  We want to create circles whose centers and radii are dependent on the to the x and y values from the accelerometer (we can do this using the <strong>uibuilder</strong>)   Finally we want to output our visualisation on a screen, so we connect up the app node.  Once connected up, you should have a flow as follows:</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/tutorial/accelerometer/flow.svg" alt="connect the flows together" />
+  <figcaption class="figure-caption text-center">step one: connect the nodes together</figcaption>
+</figure>
+
+<p>Now that this is connected up, we need configure each node to do the work. Double click the sensingkit node and set the sensor type to the accelerometer.  The grunt work will be done by the uibuilder, so double click to open it up.</p>
+
+<h4 id="2-configure-the-nodes">2. configure the nodes</h4>
+
+<h4 id="3-testing-our-app">3. testing our app</h4>
+
+
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

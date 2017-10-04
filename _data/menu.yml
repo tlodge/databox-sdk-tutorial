@@ -8,11 +8,9 @@
 - title: "getting started"
   subcategories:
     - subtitle: "quick start"
-      subhref: "#"
-    - subtitle: "installing databox"
-      subhref: "#"
-    - subtitle: "installing the sdk"
-      subhref: "#"
+      subhref: "/gettingstarted/quickstart"
+    - subtitle: "installing databox and the sdk"
+      subhref: "/gettingstarted/install"
 
 - title: "sdk walk-through"
   subcategories:
@@ -29,7 +27,6 @@
       subhref: "/tutorials/bulb/"
     - subtitle: "light gauge"
       subhref: "/tutorials/gauge/"
-    - subtitle: "doomsday clock"
-      subhref: "#"
-    - subtitle: "a face recognition app"
-      subhref: "#"
+    - subtitle: "accelerometer vapour trail"
+      subhref: "/tutorials/accelerometer/"
+    

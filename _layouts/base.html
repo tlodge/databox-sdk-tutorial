@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+    
+    <div class="grid-y medium-grid-frame">
+      <!-- Start Top Bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">databox</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="https://github.com/me-box/platform-sdk">sdk github</a></li>
+          <li><a href="https://github.com/me-box/databox">databox github</a></li>
+          <li><a href=" http://www.databoxproject.uk">databox project</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+      <div class="callout large primary">
+      <div class="row column text-center">
+        <h1>{{page.title}}</h1>
+      </div>
+    </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x fullheight" >
+           <div class="cell medium-2 medium-cell-block-y menu">
+            <div>{% include menu.html %}</div>
+           </div>
+            <div class="cell medium-10 medium-cell-block-y">
+              <div class="tutorialcontent">
+                {{content}} 
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+   
+  </body>
+</html>
+
+
+
