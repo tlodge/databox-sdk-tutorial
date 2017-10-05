@@ -87,7 +87,121 @@
            </div>
             <div class="cell medium-10 medium-cell-block-y">
               <div class="tutorialcontent">
-                <p>Full instructions on installing databox and the sdk can be found <a href="https://github.com/me-box/databox">here</a></p>
+                <h2 id="prerequisites">Prerequisites</h2>
+
+<p>These instructions will assume you are using a mac that is connected to the Internet, though the commands should translate directly to flavours of linux.  Before you get started you will need the following:</p>
+
+<ul>
+  <li>docker</li>
+  <li>git</li>
+</ul>
+
+<p>We also recommend that you install the databox dashboard app, which can be found on Google Play (and Apple’s app store..) as this will give you a few sensors to play with.  If you want to use teh sdk, you will need a <a href="https://github.com">github</a> account</p>
+
+<h3 id="installing-docker">Installing docker</h3>
+
+<p>Instructions for installing docker can be found <a href="https://www.docker.com/community-edition">here</a>.</p>
+
+<h3 id="installing-git">Installing git</h3>
+
+<p>You’ll need to install git (and databox) using the mac’s <strong>Terminal</strong> application; open Finder, click on Appilications, then Utilities and then Terminal.   This will open a new command line window. If you have any problems, watch <a href="https://www.youtube.com/watch?v=zw7Nd67_aFw">this</a>.  First, check to see if git is already installed, by typing:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git --version
+</code></pre>
+</div>
+
+<p>If you get a response such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git version 2.10.1 (Apple Git-78)
+</code></pre>
+</div>
+
+<p>Then git is installed. You can move to the <strong>installing databox</strong> section.  Else, if the response is:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git: command not found
+</code></pre>
+</div>
+
+<p>Then you’ll need to install git.  The easiest way to install git on a mac is to use Homebrew, which you will need to install first.  Copy and paste the following, then type enter:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
+</code></pre>
+</div>
+
+<p>You will be offered to install the Command Line Developer Tools from Apple. Confirm by clicking Install. After the installation finished, continue installing Homebrew by hitting Return again.</p>
+
+<p>Now you can install git by typing:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew install git
+</code></pre>
+</div>
+
+<p>Check that git is now installed by running</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git --version
+</code></pre>
+</div>
+
+<h3 id="installing-databox">installing databox</h3>
+
+<p>Assuming you have docker and git installed, you are now ready to install databox.  Type the following into <strong>Terminal</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/me-box/databox.git
+</code></pre>
+</div>
+
+<p>This will create a new folder called databox.  Type</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ~/databox
+</code></pre>
+</div>
+
+<p>There are various ways of running databox, depending on your requirements, but we’ll assume that you want to run the sdk for building apps alongside databox.  Type:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./start-databox sdk
+</code></pre>
+</div>
+
+<p>You’ll now need to wait a while whilst the scripts pull down and build the docker containers required by databox and the sdk.  Once this has finished, you should see something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[2017-10-05T14:49:52+0100 databox-start]: Databox started! Visit http://127.0.0.1:8989
+databox_container-manager.1.u4k4d2kafu4f@moby    | npm info it worked if it ends with ok
+databox_container-manager.1.u4k4d2kafu4f@moby    | npm info using npm@5.3.0
+databox_container-manager.1.u4k4d2kafu4f@moby    | npm info using node@v8.4.0
+databox_container-manager.1.u4k4d2kafu4f@moby    | npm info lifecycle container-manager@0.1.0~prestart: container-manager@0.1.0
+databox_container-manager.1.u4k4d2kafu4f@moby    | npm info lifecycle container-manager@0.1.0~start: container-manager@0.1.0
+databox_container-manager.1.u4k4d2kafu4f@moby    |
+databox_container-manager.1.u4k4d2kafu4f@moby    | &gt; container-manager@0.1.0 start /
+databox_container-manager.1.u4k4d2kafu4f@moby    | &gt; node src/main.js
+databox_container-manager.1.u4k4d2kafu4f@moby    |
+databox_container-manager.1.u4k4d2kafu4f@moby    | Using dev registry::
+databox_container-manager.1.u4k4d2kafu4f@moby    | Starting UI Server!!
+
+</code></pre>
+</div>
+
+<p>To check that the databox is running, open up a browser and go to <a href="http://127.0.0.1:8989">http://127.0.0.1:8989</a>.  You should see something like this:</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/overview/dashboard/home.png" alt="dashboard home" />
+  <figcaption class="figure-caption text-center">databox dashboard home screen</figcaption>
+</figure>
+
+<p>To check that the sdk is running, go to <a href="http://127.0.0.1:8086">http://127.0.0.1:8989</a>.  You should see:</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/overview/dashboard/sdklogin.png" alt="dashboard home" />
+  <figcaption class="figure-caption text-center">databox dashboard home screen</figcaption>
+</figure>
+
+<p>If you do not, go back into the terminal and type the following again:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./start-databox sdk
+</code></pre>
+</div>
+
+<p>Now you are ready to explore the dashboard and the sdk.</p>
  
               </div>
            </div>
