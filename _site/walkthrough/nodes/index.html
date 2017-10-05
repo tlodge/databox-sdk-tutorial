@@ -40,9 +40,9 @@
     <ul class="menu side">
       <li class="docs-nav-title">overview</li>
     
-      <li> <a href="/overview/databox.html">databox overview</a></li>
+      <li> <a href="/overview/databox">databox overview</a></li>
     
-      <li> <a href="/overview/sdk.html">sdk overview</a></li>
+      <li> <a href="/overview/sdk">sdk overview</a></li>
     
     </ul>
   
@@ -54,6 +54,10 @@
       <li> <a href="/gettingstarted/quickstart">quick start</a></li>
     
       <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+    
+      <li> <a href="/gettingstarted/dashboard">a first look at the dashboard</a></li>
+    
+      <li> <a href="/gettingstarted/sdk">a first look at the sdk</a></li>
     
     </ul>
   
@@ -93,13 +97,13 @@
   <li>Datasources</li>
 </ul>
 
-<p>Will typically just have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to emit, for example, accelerometer, light, audio, bluetooth data.  The data schema will vary according to the way a datasource is configured.</p>
+<p>Will typically just have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to to emit data for a range of onboard sensors, including accelerometer, light, audio and bluetooth scans.  The data schema will vary according to the specifics of how a datasource is configured.</p>
 
 <ul>
   <li>Processors</li>
 </ul>
 
-<p>Act upon data, usually to transform it in some way.  For example the ‘chartify’ processor will take input data and format into x and y values to render to a chart.  The ‘extract’ processor will extract a set of attributes from data.  The most general-purpose processor is a dbfunction (databox function), which allows a developer to write javascript code and import npm libraries to process data.  We provide much more information on writing dbfunctions <a href="/walkthrough/functions">here</a></p>
+<p>Act upon data, usually to transform it in some way.  For example the ‘chartify’ processor will take input data and formatready for rendering a chart.  The ‘extract’ processor will extract a set of attributes from data.  The most general-purpose processor is a dbfunction (databox function), which allows a developer to write javascript code and import npm libraries to process data.  We provide much more information on writing dbfunctions <a href="/walkthrough/functions">here</a></p>
 
 <ul>
   <li>Outputs</li>

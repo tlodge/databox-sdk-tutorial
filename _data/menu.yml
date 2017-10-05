@@ -1,9 +1,9 @@
 - title: "overview"
   subcategories:
     - subtitle: "databox overview"
-      subhref: "/overview/databox.html"
+      subhref: "/overview/databox"
     - subtitle: "sdk overview"
-      subhref: "/overview/sdk.html"
+      subhref: "/overview/sdk"
 
 - title: "getting started"
   subcategories:
@@ -11,6 +11,10 @@
       subhref: "/gettingstarted/quickstart"
     - subtitle: "installing databox and the sdk"
       subhref: "/gettingstarted/install"
+    - subtitle: "a first look at the dashboard"
+      subhref: "/gettingstarted/dashboard"
+    - subtitle: "a first look at the sdk"
+      subhref: "/gettingstarted/sdk"
 
 - title: "sdk walk-through"
   subcategories:

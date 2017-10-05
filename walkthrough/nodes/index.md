@@ -7,11 +7,11 @@ Out of the box the sdk gives you several 'nodes' that you can use to construct y
 
 - Datasources
 
-Will typically just have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to emit, for example, accelerometer, light, audio, bluetooth data.  The data schema will vary according to the way a datasource is configured.
+Will typically just have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to to emit data for a range of onboard sensors, including accelerometer, light, audio and bluetooth scans.  The data schema will vary according to the specifics of how a datasource is configured.
 
 - Processors
 
-Act upon data, usually to transform it in some way.  For example the 'chartify' processor will take input data and format into x and y values to render to a chart.  The 'extract' processor will extract a set of attributes from data.  The most general-purpose processor is a dbfunction (databox function), which allows a developer to write javascript code and import npm libraries to process data.  We provide much more information on writing dbfunctions [here](/walkthrough/functions)
+Act upon data, usually to transform it in some way.  For example the 'chartify' processor will take input data and formatready for rendering a chart.  The 'extract' processor will extract a set of attributes from data.  The most general-purpose processor is a dbfunction (databox function), which allows a developer to write javascript code and import npm libraries to process data.  We provide much more information on writing dbfunctions [here](/walkthrough/functions)
 
 - Outputs
 
