@@ -15,7 +15,7 @@ This tutorial will guide you through more advanced features of the uibuilder nod
 As ever, the best way to start building our app is to connect the nodes together. We will be using the **sensingkit** accelerometer datasource.  We want to create circles whose centers and radii are dependent on the to the x and y values from the accelerometer (we can do this using the **uibuilder**)   Finally we want to output our visualisation on a screen, so we connect up the app node.  Once connected up, you should have a flow as follows:
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/tutorial/accelerometer/flow.svg" alt="connect the flows together">
+  <img class="thumbnail" src="/images/tutorial/accelerometer/flow.svg"  width="50%" alt="connect the flows together">
   <figcaption class="figure-caption text-center">step one: connect the nodes together</figcaption>
 </figure>
 

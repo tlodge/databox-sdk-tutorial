@@ -15,7 +15,7 @@ This tutorial will show you how to write a simple function to turn a philips hue
 The best way to get started writing apps is to connect your nodes together as you expect the data to flow. We want to flash our bulbs every second,  so we want to use the red **inject** node to emit a message every second.  We want to turn that message into an instruction to turn the bulb on or off, so we connect the inject node to a **dbfunction** (databox function) node.  Finally we want to send that instruction to the bulb, so we connect to the **bulbsout** node.  It's always useful to check that the output from a function is as you expect, so we also connect the output from dbfunction to a **debug** node.  Once connected up, you should have a flow as follows:
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/tutorial/bulb/flow.svg" alt="connect the flows together">
+  <img class="thumbnail" src="/images/tutorial/bulb/flow.svg" width="50%" alt="connect the flows together">
   <figcaption class="figure-caption text-center">step one: connect the nodes together</figcaption>
 </figure>
 
@@ -27,7 +27,7 @@ Now that this is connected up, we need configure each node to do the work.
 We have said that we want to flash the bulb on/off every second.  Double click on the red inject node.  You are presented with a configuration dialogue.  We don't really care what kind of message the node sends, just that it sends one every second:
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/tutorial/bulb/inject.png" alt="connect the flows together">
+  <img class="thumbnail" src="/images/tutorial/bulb/inject.png" alt="configure the inject noder">
   <figcaption class="figure-caption text-center">step two: configure the inject node</figcaption>
 </figure>
 

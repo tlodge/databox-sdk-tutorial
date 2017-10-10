@@ -15,7 +15,7 @@ This tutorial will show you how to build a simple light monitor.  It will take t
 Connect the sensing kit node (yellow datasource) to the uibuilder node (blue processor) to the app output node (orange output).  So data will flow from sensingkit, will be turned into a visualisation and then displayed on a screen in the app.
 
 <figure class="figure">
-  <img src="/images/tutorial/gauge/step1.svg" class="thumbnail" alt="databox sdk">
+  <img src="/images/tutorial/gauge/step1.svg" class="thumbnail" width="50%" alt="databox sdk">
   <figcaption class="figure-caption text-center">step one: connect the nodes together</figcaption>
 </figure>
 
@@ -97,7 +97,7 @@ Click on ok on the uibuilder window.  Now click on test. This will pull up a men
 Eventually you should see your gauge with the pointer rotating seemingly randomly.  The test page is sending mock light data to your app, which is causing the dial to rotate.
 
 <figure class="figure">
-  <img src="/images/tutorial/gauge/testoutput.png" class="thumbnail" alt="databox sdk">
+  <img src="/images/tutorial/gauge/testoutput.png" width="50%" class="thumbnail" alt="databox sdk">
   <figcaption class="figure-caption text-center">step four: test output</figcaption>
 </figure>
 
