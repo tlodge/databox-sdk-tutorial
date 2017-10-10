@@ -91,75 +91,100 @@
            </div>
             <div class="cell medium-10 medium-cell-block-y">
               <div class="tutorialcontent">
-                <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/charttest.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+                <p>First set up a <a href="https://github.com/join">github account</a> here if you don’t have one.  Then, go to <a href="http://127.0.0.1:8086">http://127.0.0.1:8086</a></p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/configurechart.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/sdklogin.png" width="50%" alt="sdk login page" />
+  <figcaption class="figure-caption text-center">sdk login page</figcaption>
 </figure>
 
-<figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/configureosmon.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+<p>Once logged in you’ll be presented with the main sdk screen:</p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/debugger.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/mainscreen.png" width="80%" alt="sdk main screen" />
+  <figcaption class="figure-caption text-center">sdk main screen</figcaption>
 </figure>
 
-<figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/exampleflow.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+<p>[overview of datastores, processors and outputs]</p>
+
+<p>Let’s load up an example app:</p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/examplerepos.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/examplerepos.png" width="30%" alt="example repos" />
+  <figcaption class="figure-caption text-center">example repos</figcaption>
 </figure>
 
-<figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/mainscreen.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+<p>Click on the <strong>databox.tutorial-monitor-chart</strong>.  You should now see a new flow in the workspace:</p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/newrepos.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/exampleflow.png" width="50%" alt="example flow" />
+  <figcaption class="figure-caption text-center">monitor chart flow</figcaption>
 </figure>
 
-<figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/publishform.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+<p>Lets look at the osmonitor datasource (the yellow node)</p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/publishing.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/configureosmon.png" alt="configure osmonitor node" />
+  <figcaption class="figure-caption text-center">configure osmonitor node</figcaption>
 </figure>
 
-<figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/repos.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+<p>Now lets look at the chart node</p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/risk.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/configurechart.png" alt="configure chart node" />
+  <figcaption class="figure-caption text-center">configure chart node</figcaption>
 </figure>
 
-<figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/sdklogin.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
+<p>Up top there is a risk overview for this app:</p>
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/gettingstarted/testnodes.png" alt="" />
-  <figcaption class="figure-caption text-center"></figcaption>
+  <img class="thumbnail" src="/images/gettingstarted/risk.png" width="50%" alt="risk overview" />
+  <figcaption class="figure-caption text-center">risk overview</figcaption>
 </figure>
+
+<p>Now lets test it:</p>
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/testnodes.png" width="30%" alt="test output" />
+  <figcaption class="figure-caption text-center">test output</figcaption>
+</figure>
+
+<p>…in the debugger</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/debugger.png" width="80%" alt="debugger output" />
+  <figcaption class="figure-caption text-center">debugger output</figcaption>
+</figure>
+
+<p>..and lets test the chart viz:</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/charttest.png" width="80%" alt="chart visualisation" />
+  <figcaption class="figure-caption text-center">chart visualisation</figcaption>
+</figure>
+
+<p>Ok, all looks good, lets publish:</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/publishform.png" alt="publish form" />
+  <figcaption class="figure-caption text-center">publish form</figcaption>
+</figure>
+
+<p>And this may take a while as the container is built, pushed to github etc.</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/publishing.png" alt="publishing your app" />
+  <figcaption class="figure-caption text-center">publishing your app</figcaption>
+</figure>
+
+<p>Once done, you should see your new app:</p>
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/newrepos.png" width="30%" alt="your new repo" />
+  <figcaption class="figure-caption text-center">your new repo</figcaption>
+</figure>
+
+<p>And now go to your github account and you should see it there too.</p>
+
  
               </div>
            </div>

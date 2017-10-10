@@ -8,7 +8,7 @@ title: tutorial - accelerometer vapour trail
 duration: 10 minutes
 ---
 
-This tutorial will guide you through more advanced features of the uibuilder node. The finished app can be found by clicking on the <i>examples</i> menu item on the sdk toolbar and selecting: **databox.tutorial_accelerometer_trail**
+This tutorial will guide you through more advanced features of the uibuilder node. The finished app can be found by clicking on the <i>examples</i> menu item on the sdk toolbar and selecting: **databox.tutorial-accelerometer-axes**
 
 #### 1. connect the nodes together
 
