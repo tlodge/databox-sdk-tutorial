@@ -1,3 +1,5 @@
+
+
 .fullheight {
 	height: 100%;
 }
@@ -9,16 +11,6 @@
 .callout.primary{
 	background-color: #074E68;
 	color: white;
-}
-
-.menu{
-	background: #e6e6e6;
-}
-
-.menu .docs-nav-title {
-    margin-top: 1rem;
-    border-top: 0;
-    padding-top: 0;
 }
 
 .docs-nav-title {
@@ -34,12 +26,37 @@
     padding-top: 1.5rem;
 }
 
+.menu{
+	background: #e6e6e6;
+}
+
+.menu .docs-nav-title {
+    margin-top: 1rem;
+    border-top: 0;
+    padding-top: 0;
+}
+
 .menu .side li {
 	width: 100%;
 }
 .menu > li > a{
     line-height: 1.5;
     padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+}
+
+
+.submenu .side li{
+	width: 100%
+}
+
+.submenu {
+	list-style: none;
+}
+
+.submenu > li > a{
+    line-height: 1.5;
+    padding: 0.45rem 2rem;
     font-size: 0.85rem;
 }
 
@@ -70,4 +87,8 @@ p {
 
 .tutorialcontent{
 	margin-top: 2rem;
+}
+
+.video{
+	margin-top: 30px;
 }

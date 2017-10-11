@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+    
+    <div class="grid-y medium-grid-frame">
+      <!-- Start Top Bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">databox</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="https://github.com/me-box/platform-sdk">sdk github</a></li>
+          <li><a href="https://github.com/me-box/databox">databox github</a></li>
+          <li><a href=" http://www.databoxproject.uk">databox project</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+      <div class="callout large primary">
+      <div class="row column text-center">
+        <h1>function tutorials</h1>
+      </div>
+    </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x fullheight" >
+           <div class="cell medium-2 medium-cell-block-y menu">
+            <div>
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">overview</li>
+    
+      <li> <a href="/overview/databox">databox overview</a></li>
+      
+    
+      <li> <a href="/overview/sdk">sdk overview</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">getting started</li>
+    
+      <li> <a href="/gettingstarted/quickstart">quick start</a></li>
+      
+    
+      <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/sdk">a first look at the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/dashboard">a first look at the dashboard</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk tutorials</li>
+    
+      <li> <a href="/tutorials/visualisations">visualisations</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
+              
+         </ul>
+      
+    
+      <li> <a href="/tutorials/actuation">actuation</a></li>
+      
+    
+      <li> <a href="/tutorials/functions">functions</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/functions/bulb/">flash bulbs</a></li>
+              
+         </ul>
+      
+    
+    </ul>
+  
+</div>
+           </div>
+            <div class="cell medium-10 medium-cell-block-y">
+              <div class="tutorialcontent">
+                <p>This set of tutorials is aimed at getting you writing apps that make use of the <strong>dbfunction</strong> (databox functon) node.  The dbfunction node allows you to write javascript code to process data.  Unlike other nodes, it is relatively unconstrained, and all of the tutorials in this section will make some use of dbfunctions.</p>
+
+<p>There are a few headline things that you need to know:</p>
+
+<ul>
+  <li>values <strong>returned</strong> by functions are sent as messages. If you do not wish to send a message, simply return nothing.</li>
+  <li>to send multiple outputs, you send an array (item at index 0 is sent on the first output, at index 1 on the second output and so on)</li>
+  <li>you are able to import npm libraries.  When you subsequently test a function a new container is built with any imported libraries installed.</li>
+  <li>functions can store and access data to use between invocations using a  <strong>context</strong> object:</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//store foo</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">,</span> <span class="nx">myvalue</span><span class="p">)</span>
+
+<span class="c1">//retrieve foo</span>
+<span class="kd">var</span> <span class="nx">myvalue</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span> <span class="o">||</span> <span class="nx">adefaultvalue</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Several nodes need to know the ‘shape’ of data that they are receiving as input.  If the function nodes is sending data to one of these nodes, then it has to specify its schema.</li>
+</ul>
+
+<p>The following tutorials make use of functions in some way</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>tutorial</th>
+      <th>description</th>
+      <th>example name in sdk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/functions/bulb">flash bulbs</a></td>
+      <td>this turns a bulb on then off each second.  It makes use of the **context** object to store state between the receipt of new data</td>
+      <td>databox.tutorial-on-off</td>
+    </tr>
+    <tr>
+      <td>shake light</td>
+      <td>this takes the sensingkit accelerometer x data and turns a bulb on or off when it hits a threshold value </td>
+      <td>databox.tutorial-shake-light</td>
+    </tr>
+    <tr>
+      <td>binary count</td>
+      <td>this uses the **context** object and has multiple outputs </td>
+      <td>databox.tutorial-hue-binary</td>
+    </tr>
+  </tbody>
+</table>
+ 
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+   
+  </body>
+</html>
+
+
+

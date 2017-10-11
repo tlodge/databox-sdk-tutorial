@@ -4,6 +4,13 @@
       <li class="docs-nav-title">{{nav.title}}</li>
     {% for subcategory in nav.subcategories %}
       <li> <a href="{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+      {% if subcategory.subcategories != null %}
+         <ul class="submenu">
+              {% for subsubcategory in subcategory.subcategories  %}
+                  <li> <a href="{{ subsubcategory.subhref }}">{{ subsubcategory.subtitle }}</a></li>
+              {% endfor %}
+         </ul>
+      {% endif %}
     {% endfor %}
     </ul>
   {% endif %}

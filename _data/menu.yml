@@ -11,26 +11,24 @@
       subhref: "/gettingstarted/quickstart"
     - subtitle: "installing databox and the sdk"
       subhref: "/gettingstarted/install"
-    - subtitle: "a first look at the dashboard"
-      subhref: "/gettingstarted/dashboard"
     - subtitle: "a first look at the sdk"
       subhref: "/gettingstarted/sdk"
-
-- title: "sdk walk-through"
-  subcategories:
-    - subtitle: "datasources, processors and outputs"
-      subhref: "/walkthrough/nodes"
-    - subtitle: "data types and schemas"
-      subhref: "/walkthrough/data"
-    - subtitle: "working with functions"
-      subhref: "/walkthrough/functions"
-
+    - subtitle: "a first look at the dashboard"
+      subhref: "/gettingstarted/dashboard"
+  
 - title: "sdk tutorials"
   subcategories:
-    - subtitle: "flash bulbs"
-      subhref: "/tutorials/bulb/"
-    - subtitle: "light gauge"
-      subhref: "/tutorials/gauge/"
-    - subtitle: "accelerometer vapour trail"
-      subhref: "/tutorials/accelerometer/"
-    
+    - subtitle: "visualisations"
+      subhref: "/tutorials/visualisations"
+      subcategories:
+        - subtitle: "light gauge"
+          subhref: "/tutorials/visualisations/gauge/"
+        - subtitle: "accelerometer trail"
+          subhref: "/tutorials/visualisations/accelerometer/" 
+    - subtitle: "actuation"
+      subhref: "/tutorials/actuation"
+    - subtitle: "functions"
+      subhref: "/tutorials/functions"
+      subcategories:
+        - subtitle: "flash bulbs"
+          subhref: "/tutorials/functions/bulb/"
