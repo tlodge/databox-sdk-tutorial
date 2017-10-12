@@ -27,11 +27,11 @@ Down the left hand side is the palette of 'nodes' that you can use to construct 
   <figcaption class="figure-caption text-center">sdk main screen</figcaption>
 </figure>
 
-If you have not yet read the overview of the databox, it may be worth doing so before continuing.  Apps built in the SDK use a (loose) flow-based programming paradigm.  Apps are built as directed graph of black boxes with well-defined input and output interfaces (ports) connected by edges. We are principally concerned with data flow; data (information packets) flows along edges, in and out of nodes and is processed and modified along the way.  Out of the box the sdk gives you several 'nodes' that you can use to construct your apps:
+If you have not yet read the overview of the databox, it may be worth doing so before continuing.  Apps built in the SDK use a (loose) flow-based programming paradigm.  Apps are built as a directed graph of black boxes with input and output interfaces (ports) connected by edges. We are principally concerned with data flow; data (information packets) flows along edges, in and out of nodes and is processed and modified along the way.  Out of the box the sdk gives you several 'node' types that you can use to construct your apps:
 
 - datasources 
 
-**Datasources** are originators of data (e.g. iot devices such as smartplugs or bulbs, social media data feeds, system logs, webcam images and so on).   They will typically just have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to to emit data for a range of onboard sensors, including accelerometer, light, audio and bluetooth scans.  The data schema will vary according to the specifics of how a datasource is configured.
+**Datasources** are originators of data (e.g. iot devices such as smartplugs or bulbs, social media data feeds, system logs, webcam images and so on).   They will typically have a single output on which they send data.  Data sources may create different data depending on how they are configured.  For example the sensingkit datasource can be configured to to emit data for a range of onboard sensors, including accelerometer, light, audio and bluetooth scans.  The data schema will vary according to the specifics of how a datasource is configured.
 
 - processors  
 
@@ -39,14 +39,15 @@ If you have not yet read the overview of the databox, it may be worth doing so b
 
 - outputs
 
-**Outputs** are the endpoints of a flow, they with typically perform some kind of actuation (turn a bulb on, send a tweet) or display (present a visualisation, graph etc).  We currently support a limited set of output nodes; anything that needs to output data (charts, visulisations, html, text) will use the 'app' node.  If you want to actuate [philips hue bulbs](https://www.philips.co.uk/c-m-li/hue), you can use the bulbsout node, and if you want to turn smart plugs on/off you can use the plugout output which works with [tplink smart plugs](http://uk.tp-link.com/products/details/cat-5258_HS100.html).
+**Outputs** are the endpoints of a flow, they with typically perform some kind of actuation (turn a bulb on, send a tweet) or display (present a visualisation, graph etc).  We currently support a limited set of output nodes; anything that needs to output data (charts, visualisations, html, text) will use the 'app' node.  If you want to actuate [Philips Hue Bulbs](https://www.philips.co.uk/c-m-li/hue), you can use the **bulbsout** node, and if you want to turn smart plugs on/off you can use the **plugout** output which works with [TPLink Smart Plugs](http://uk.tp-link.com/products/details/cat-5258_HS100.html).
 
 
 There are also a couple of special nodes that do not fit into the categories above.  The **inject** node (in red) resembles a datastore; it can be use to one-off or peridoic events, perhaps to kick start an app or undertake a periodic task.
 
-The **debugger** node is used during testing; it allows a developer to inspect the data output from a node; the all debugger nodes are automatically stripped out when an app is published.
+The **debugger** node is used during testing; it allows a developer to inspect the data output from a node; debugger nodes are automatically stripped out when an app is published.
 
-All nodes in the SDK provide interfaces for configuration - these can be very rich, and may operate as comprehensive tools in their own right.   For example the 'uibuilder' processing node provides a vector-based graphs tool for attaching incoming data to components of an svg image.  Nodes also come with comprehensive help; perhaps the most important is an overview of the data schemas that they expect and/or output.     
+All nodes in the SDK provide interfaces for configuration - these can be very rich, and may operate as comprehensive tools in their own right.   For example the 'uibuilder' processing node provides a vector-based graphics tool for attaching incoming data to components of an image.  Nodes also come with context-sensitive help; perhaps the most important is an overview of the data schemas that they expect and/or output.     
+
 ### Running an example app
 
 Now let's load up an example app.  Each of the example apps correspond to tutorials in the SDK TUTORIAL section of this guide.  Click on EXAMPLES on the main toolbar, and you will be presented with a list.
@@ -56,7 +57,7 @@ Now let's load up an example app.  Each of the example apps correspond to tutori
   <figcaption class="figure-caption text-center">example repos</figcaption>
 </figure>
 
-Click on the **databox.tutorial-monitor-chart**.  This will open a new 4-node flow in the workspace.  Already it is possible to get some indication of what the app does.  The yellow **osmonitor** node is feeding data into a **chart** (processor) node and a **debug** node.  And finally the chart node feeds data into the app (output) node.  The app node is simply a display output; it will display data on a screen on the databox dashboard.
+Click on the **databox.tutorial-freememory**.  This will open a new 4-node flow in the workspace.  By looking at the flow, it is already possible to get some idea of what the app does.  The yellow **osmonitor** node is feeding data into a **chart** (processor) node and a **debug** node.  Finally the chart node is feeding data into the app (output) node.  The app node is simply a display output; it will display data on a screen on the databox dashboard.
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/sdk/exampleflow.png" width="50%" alt="example flow">
