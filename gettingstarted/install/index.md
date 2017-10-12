@@ -102,14 +102,14 @@ databox_container-manager.1.u4k4d2kafu4f@moby    | Starting UI Server!!
 To check that the databox is running, open up a browser and go to [http://127.0.0.1:8989](http://127.0.0.1:8989).  You should see something like this:
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/overview/dashboard/home.png" alt="dashboard home">
+  <img class="thumbnail" src="/images/gettingstarted/dashboard/home.png" alt="dashboard home">
   <figcaption class="figure-caption text-center">databox dashboard home screen</figcaption>
 </figure>
 
 To check that the sdk is running, go to [http://127.0.0.1:8989](http://127.0.0.1:8086).  You should see:
 
 <figure class="figure">
-  <img class="thumbnail" src="/images/overview/dashboard/sdklogin.png" alt="dashboard home">
+  <img class="thumbnail" src="/images/gettingstarted/sdk/sdklogin.png" alt="dashboard home">
   <figcaption class="figure-caption text-center">databox dashboard home screen</figcaption>
 </figure>
 
