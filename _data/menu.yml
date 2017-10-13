@@ -32,3 +32,8 @@
       subcategories:
         - subtitle: "flash bulbs"
           subhref: "/tutorials/functions/bulb/"
+
+- title: "miscellaneous"
+  subcategories:
+    - subtitle: "sdk containers"
+      subhref: "/miscellaneous/sdkcontainers"
