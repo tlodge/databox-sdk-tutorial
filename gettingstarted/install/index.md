@@ -77,7 +77,7 @@ cd ~/databox
 There are various ways of running databox, depending on your requirements, but we'll assume that you want to run the sdk for building apps alongside databox.  Type:
 
 ```
-./start-databox sdk
+./databox-start sdk
 ```
 
 You'll now need to wait a while whilst the scripts pull down and build the docker containers required by databox and the sdk.  Once this has finished, you should see something like:
