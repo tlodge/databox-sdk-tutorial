@@ -11,6 +11,13 @@ html{
 	margin-bottom: 0px;
 }
 
+.callout.large {
+    padding-top: 2rem;
+    padding-right: 3rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem;
+}
+
 .callout.primary{
 	background-color: #074E68;
 	color: white;
@@ -28,6 +35,7 @@ html{
     margin-top: 1rem;
     padding-top: 1.5rem;
 }
+
 
 .menu{
 	background: #e6e6e6;
