@@ -1,0 +1,217 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+
+    <div class="grid-y medium-grid-frame">
+      <!-- Start Top Bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">databox</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="https://github.com/me-box/platform-sdk">sdk github</a></li>
+          <li><a href="https://github.com/me-box/databox">databox github</a></li>
+          <li><a href=" http://www.databoxproject.uk">databox project</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+      <div class="callout large primary">
+      <div class="row column text-center">
+        <h2><img src="/images/logo.svg" width="10%"/> developing without the sdk</h2>
+      </div>
+    </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x fullheight" >
+           <div class="cell medium-2 medium-cell-block-y menu">
+            <div>
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">overview</li>
+    
+      <li> <a href="/overview/databox">databox overview</a></li>
+      
+    
+      <li> <a href="/overview/sdk">sdk overview</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">getting started</li>
+    
+      <li> <a href="/gettingstarted/quickstart">quick start</a></li>
+      
+    
+      <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/sdk">a first look at the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/dashboard">a first look at the dashboard</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk tutorials</li>
+    
+      <li> <a href="/tutorials/visualisations">visualisations</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
+              
+         </ul>
+      
+    
+      <li> <a href="/tutorials/actuation">actuation</a></li>
+      
+    
+      <li> <a href="/tutorials/functions">functions</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/functions/bulb/">flash bulbs</a></li>
+              
+         </ul>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">devloping without the sdk</li>
+    
+      <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
+      
+    
+      <li> <a href="/devlopingwithoutsdk/modifycore">modifying core components</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">miscellaneous</li>
+    
+      <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
+      
+    
+    </ul>
+  
+</div>
+           </div>
+            <div class="cell medium-10 medium-cell-block-y">
+              <div class="tutorialcontent">
+                <p>Building app with the SDK can be quick and fun. However, it has a number of limitations. For example,</p>
+
+<ul>
+  <li>The final app will be built on NodeJS which produces large images and can be memory inefficient</li>
+  <li>You currently can’t build drivers</li>
+  <li>Some data sources aren’t supported in the SDK</li>
+</ul>
+
+<p>To overcome these limitations it is possible to develop apps outside of the SDK.  this guide will give you an introduction to doing so.  to explain how to do this we will add it currently existing Databox Apps.</p>
+
+<h4 id="getting-the-source-code">Getting the source code</h4>
+
+<p>Once you have in installed Databox as described <a href="/gettingstarted/install">here</a> you can you the ‘databox-install-component’ command to locally install and build the image for apps or drivers published on GitHub. Run this command in your Databox root folder to install app-os-monitor.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./databox-install-component me-box/app-os-monitor
+</code></pre>
+</div>
+
+<p>This will:</p>
+<ol>
+  <li>pull the source code for the app-os-monitor from Github to your machine</li>
+  <li>build and tag the downloaded code into a docker image</li>
+  <li>upload the databox-manifest.json to the local app store</li>
+</ol>
+
+<blockquote>
+  <p>Note: if you are starting a new app then you can manually create a folder. As a minimum, you will need a Dockerfile and a databox-manifest.json to be able to install the app/driver.
+Note: if you want to modify this component fork it on GitHub fist the use <code class="highlighter-rouge">./databox-install-component [YOUR_USERNAME]/app-os-monitor</code> once you have made an tested your changes then you can submit a pull request back to the original repository</p>
+</blockquote>
+
+<p>Once this command has completed you can edit the code in ./app-os-monitor to make your changes.</p>
+
+<h4 id="checking-the-app-is-available-locally">Checking the app is available locally</h4>
+
+<p>Now that you have installed app-os-monitor locally it is available from the remote an local app-server. When you go back into the databox UI and install  app-os-monitor there will be a drop down next to the install button which allows you to select the required store.</p>
+
+<blockquote>
+  <p>Note: If you are developing an app/driver only available locally then there will be no option.</p>
+</blockquote>
+
+<p>Install the local version and confirm it works by accessing its UI (you will need to install driver-os-monitor first).</p>
+
+<p>You can confirm the Databox is running you local image by:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./docker service ls
+</code></pre>
+</div>
+
+<p>The output should like this notice the missing (databoxsystems/):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ID                  NAME                        MODE                REPLICAS            IMAGE
+hwrajzssotmh        app-os-monitor              replicated          1/1                 app-os-monitor
+zmv1nk7jojd3        databox_arbiter             replicated          1/1                 databoxsystems/arbiter:latest
+o3i0okog00e2        databox_container-manager   replicated          1/1                 databoxsystems/container-manager:latest
+j4ktcn8kyt8y        databox_export-service      replicated          1/1                 databoxsystems/export-service:latest
+</code></pre>
+</div>
+
+<h4 id="making-a-changes">Making a changes</h4>
+
+<p>Open the apps src code in the editor of your choice and make the required changes and save them! Once this has been done you can run  <code class="highlighter-rouge">./databox-install-component</code> again to rebuild the image or:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd [SRC-FOLDER]
+docker build -t [APP-NAME] .
+</code></pre>
+</div>
+
+<p>Then you can go back into the databox UI and restart the app using the refresh button on the app list screen. This works for drivers too.</p>
+
+<blockquote>
+  <p>Note: This is a quick way to get started but sometimes using a different approach is needed see <a href="https://github.com/me-box/documents/blob/master/guides/docker-dev.md">docker-dev.md</a></p>
+</blockquote>
+
+<h4 id="debugging-problems">Debugging problems</h4>
+
+<p>Docker service logs is your friend, all apps driver and stores are run as docker services so use:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docker services logs app-os-monitor -f
+</code></pre>
+</div>
+
+<p>To stream the logs form your modified app.</p>
+
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

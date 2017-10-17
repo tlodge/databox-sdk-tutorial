@@ -15,7 +15,7 @@
       subhref: "/gettingstarted/sdk"
     - subtitle: "a first look at the dashboard"
       subhref: "/gettingstarted/dashboard"
-  
+
 - title: "sdk tutorials"
   subcategories:
     - subtitle: "visualisations"
@@ -24,7 +24,7 @@
         - subtitle: "light gauge"
           subhref: "/tutorials/visualisations/gauge/"
         - subtitle: "accelerometer trail"
-          subhref: "/tutorials/visualisations/accelerometer/" 
+          subhref: "/tutorials/visualisations/accelerometer/"
     - subtitle: "actuation"
       subhref: "/tutorials/actuation"
     - subtitle: "functions"
@@ -32,6 +32,13 @@
       subcategories:
         - subtitle: "flash bulbs"
           subhref: "/tutorials/functions/bulb/"
+
+- title: "devloping without the sdk"
+  subcategories:
+    - subtitle: "modifying existing apps and drivers"
+      subhref: "/devlopingwithoutsdk/modifyexisting"
+    - subtitle: "modifying core components"
+      subhref: "/devlopingwithoutsdk/modifycore"
 
 - title: "miscellaneous"
   subcategories:
