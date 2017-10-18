@@ -193,7 +193,7 @@ The remaining steps should be relatively straighforward.  You need to add anothe
 The Trump arm must also rotate in response to sentiment.  Select the arm and make sure you are on the 'mapping' tab.  Select sentiment as the source and rotate as the attribute.  Click on the transformer to modify the default transform to:
 
 ```javascript
-return `rotate(${37-(sentiment/10*37)})
+return `rotate(${37-(sentiment/10*37)})`
 ```
 
 Once done, click on OK at the bottom of the uibuilder dialogue.  Test it again.  If all works ok, click on "PUBLISH" to publish it.
