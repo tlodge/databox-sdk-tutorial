@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Databox SDK Tutorial : the sdk containers</title>
     <link rel="stylesheet" href="/css/foundation/app.css">
     <link rel="stylesheet" href="/css/foundation/docs.css">
   </head>
@@ -29,8 +29,8 @@
 
       <div class="callout large primary">
       <div class="row column text-center">
-        <div style="text-align:center; margin-bottom:10px"><img src="/images/logo.svg" width="10%"/></div>
-        <h2>the sdk containers</h2>
+        
+        <h2><img src="/images/logo.svg" style="display:inline-block; width: 8%"> the sdk containers</h2>
       </div>
     </div>
       <div class="cell medium-auto medium-cell-block-container" >
@@ -78,6 +78,8 @@
          <ul class="submenu">
               
                   <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/trump/">trump clock</a></li>
               
                   <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
               
@@ -137,6 +139,11 @@
       <td>tlodge/databox-datasource-mock</td>
       <td><a href="https://github.com/me-box/source-sdk-mock">https://github.com/me-box/source-sdk-mock</a></td>
       <td>This is the container that creates mock data for testing. The base image is tlodge/databox-datasource-mock-base.</td>
+    </tr>
+    <tr>
+      <td>tlodge/databox-red</td>
+      <td><a href="https://github.com/tlodge/databox-nodered-nodes">https://github.com/tlodge/databox-nodered-nodes</a></td>
+      <td>This is the base images used to build TEST containers.  It is an instance of node-red alongside the nodes that are supported in the SDK.  The nodes can send messages to the databox-test-server over json-sockets can send messages to the client over websockets</td>
     </tr>
     <tr>
       <td>tlodge/databox-sdk-red</td>

@@ -1,0 +1,319 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databox SDK Tutorial : tutorial - trump clock</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+
+    <div class="grid-y medium-grid-frame">
+        <!-- Start Top Bar -->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">databox</li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><a href="#">sdk github</a></li>
+            <li><a href="#">databox github</a></li>
+            <li><a href="#">databox project</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+        <div class="callout large primary">
+        <div class="row column text-center">
+          <h1>tutorial - trump clock</h1>
+        </div>
+      </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x fullheight" >
+          <div class="cell medium-2 medium-cell-block-y menu">
+            <div>
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">overview</li>
+    
+      <li> <a href="/overview/databox">databox overview</a></li>
+      
+    
+      <li> <a href="/overview/sdk">sdk overview</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">getting started</li>
+    
+      <li> <a href="/gettingstarted/quickstart">quick start</a></li>
+      
+    
+      <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/sdk">a first look at the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/dashboard">a first look at the dashboard</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk tutorials</li>
+    
+      <li> <a href="/tutorials/visualisations">visualisations</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/trump/">trump clock</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
+              
+         </ul>
+      
+    
+      <li> <a href="/tutorials/actuation">actuation</a></li>
+      
+    
+      <li> <a href="/tutorials/functions">functions</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/functions/bulb/">flash bulbs</a></li>
+              
+         </ul>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">miscellaneous</li>
+    
+      <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
+      
+    
+    </ul>
+  
+</div>
+          </div>
+          <div class="cell medium-10 medium-cell-block-y">
+              <div class="grid-x">
+                <div class="cell medium-12">
+                  <p class="lead">
+                     <table>
+                        <thead>
+                          <tr>
+                            <th>datasources</th>
+                            <th>coding required</th>
+                            <th>skills learnt</th>
+                            <th>approximate duration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>twitter</td>
+                            <td>a little</td>
+                            <td>creating vector-based visualistion, import library</td>
+                            <td>20 minutes</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </p>
+                  <hr>
+                </div>
+              </div>
+              <div class="grid-x">
+                <div class="cell medium-12">
+                  <p>This tutorial will get you familiar with using the UIBuilder to build high quality data-driven realtime visualisations.  By the end you will have a picture of trump that changes in response to the sentiment analysis performed on incoming tweets.  Trump’s arm and the clock pointer will move in response to the sentiment score of the current tweet, and the tweet will be displayed on the green bar beneath trump.  All of the graphics have ben pre-made for you.</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/apptest.png" class="thumbnail" width="60%" alt="trump clock" />
+  <figcaption class="figure-caption text-center">trump clock</figcaption>
+</figure>
+
+<h4 id="1-connect-the-nodes-together">1. connect the nodes together</h4>
+
+<p>First of all, lets connect together all of the nodes that will be used in creating this app:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/step1.svg" class="thumbnail" width="60%" alt="step one" />
+  <figcaption class="figure-caption text-center">step one - connect the flows</figcaption>
+</figure>
+
+<p>The twitter node will provide the latest tweets (it can be configured by the user at app install time, using the twitter driver settings).  The tweets are sent to a <strong>dbfunction</strong> that will analyse for sentiment, and then send on the tweet and its score to the <strong>uibuilder</strong> node, which will craft the visualisation.  This visualisation will be sent to the <strong>app</strong>, which displays the visualisation in the databox dashboard.  So the main work in this app will be done in the dbfunction and the uibuilder app.  We also hook up a debugger node to the output of the function - this is always useful as a way of sanity checking the output. Lets write the function first.</p>
+
+<h4 id="2-write-the-sentiment-analysis-code">2. write the sentiment analysis code</h4>
+
+<p>Double click on the dbfunction node.  Here is the place that we want to write a function.  We want it to return an object with a payload that contains the sentiment score and the tweet, i.e.:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="p">{</span>
+	<span class="na">tweet</span><span class="p">:</span> <span class="p">[</span><span class="nx">the</span> <span class="nx">tweet</span><span class="p">]</span>
+	<span class="na">score</span><span class="p">:</span> <span class="p">[</span><span class="nx">the</span> <span class="nx">tweet</span><span class="err">'</span><span class="nx">s</span> <span class="nx">sentiment</span> <span class="nx">score</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Fortunately for us, there’s an npm library that performs sentiment analysis of arbitrary text, which we can use, rather than code it up ourselves.  Let’s import it at the top of our function:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">sentiment</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"sentiment"</span><span class="p">);</span>
+
+<span class="k">return</span> <span class="p">{</span>
+	<span class="na">tweet</span><span class="p">:</span> <span class="p">[</span><span class="nx">the</span> <span class="nx">tweet</span><span class="p">]</span>
+	<span class="na">score</span><span class="p">:</span> <span class="p">[</span><span class="nx">the</span> <span class="nx">tweet</span><span class="err">'</span><span class="nx">s</span> <span class="nx">sentiment</span> <span class="nx">score</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Currently the dbfunction node does not support the es6 ‘import’ syntax, though this will soon change.    We now need to take the tweet from the incoming twitter message.  To find the format of the message, click on ‘there are one inputs to this function’, and you’ll see that the incoming message has a schema with (alongside other attributes) a payload which has a ‘value’ and ‘ts’.  Where ‘value’ is the tweet.  Therefore the latest tweet is:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">value</span>
+</code></pre>
+</div>
+
+<p>Incidentally, the dbfunction can automatically assign variables to the incoming message to save you the bother of looking up the schema.  You’ll see down the left hand side of the function that the twitter node is listed under <strong>in</strong>.  If you click on that, it will generate the code that assigns variables to the input message’s attributes:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//the container object</span>
+<span class="kr">const</span> <span class="p">{</span><span class="nl">name</span><span class="p">:</span><span class="nx">msg_name</span><span class="p">,</span><span class="nx">id</span><span class="err">:</span><span class="nx">msg_id</span><span class="p">,</span><span class="nx">type</span><span class="err">:</span><span class="nx">msg_type</span><span class="p">,</span><span class="nx">subtype</span><span class="err">:</span><span class="nx">msg_subtype</span><span class="p">,</span><span class="nx">payload</span><span class="err">:</span><span class="nx">msg_payload</span><span class="p">}</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">;</span>
+<span class="err"> </span><span class="c1">//the payload object</span>
+<span class="kr">const</span> <span class="p">{</span><span class="nl">ts</span><span class="p">:</span><span class="nx">msg_payload_ts</span><span class="p">,</span><span class="nx">value</span><span class="err">:</span><span class="nx">msg_payload_value</span><span class="p">}</span> <span class="o">=</span> <span class="nx">msg_payload</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>So a variable called <i>msg_payload_value</i> has been created with the tweet assigned to it.</p>
+
+<p>Now that we have the message, we can run it through the <a href="https://github.com/thisandagain/sentiment">sentiment</a> library, which will then provide an object with <i>score</i> (which is the aggregate value of the sentiment values for each token in the string) and <i>comparative</i> which is a normalised score ranging from -5 to 5 (with 5 being the most positive, 0 neutral and -5 the most negative).  To make this easier to work with we convert it to a scale from 0 to 10, where 10 is the most negative and 0 the most positive.  Our code ends up as:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sentiment</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"sentiment"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">sentiment</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+
+<span class="c1">//r.comparative is between -5 and 5, so convert o scale 0-10 (where 0 is most negative)</span>
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">comparative</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="p">{</span>
+    <span class="na">payload</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">tweet</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
+        <span class="na">sentiment</span><span class="p">:</span> <span class="nx">score</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+
+<p>Finally, there is a bit of a sting in the tail.  All nodes in the sdk have associated data ‘schemas’ which allow nodes to know the format of data coming in or expected from their outputs.  In order to use the data from the dbfunction, the <strong>uibuilder</strong> node will need to know the format of the message coming in.  You’ll see a final box in the dbfunction called ‘output schema’, where the details of the format of the output can be added.   The sdk uses <a href="http://json-schema.org/">json schema</a> to define messages.  The messages coming from this node can be described in json-schema as:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"container object"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"object"</span><span class="p">,</span>
+    <span class="s2">"properties"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"payload"</span><span class="err">:</span> <span class="p">{</span>
+            <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"object"</span><span class="p">,</span>
+            <span class="s2">"properties"</span><span class="err">:</span><span class="p">{</span>
+                <span class="s2">"tweet"</span><span class="err">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="err">:</span><span class="s2">"string"</span><span class="p">},</span>
+                <span class="s2">"sentiment"</span><span class="err">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This is hopefully reasonably clear.  It is saying that the output is an object with one property called payload, which is itself an object with two properties: tweet (a string) and sentiment (a number).  Copy this schema into the ‘output schema’ box, and you are done.</p>
+
+<h4 id="3-configure-uibuilder">3. configure uibuilder</h4>
+
+<p>Now we need to create our visualisation of trump.  Double click on the uibuilder node.  You will be presented with a blank canvas.  Make your browser as large as possible to give yourself as much screen real estate as possible.   On the left-hand side is a palette of tools.  Click on <img src="/images/tutorial/gauge/librarybutton.png" style="display:inline-block; width: 30px" /> (click it again to toggle the image library).</p>
+
+<p>First lets drag in the background image:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder1.png" class="thumbnail" width="60%" alt="uibuilder: drag in the background" />
+  <figcaption class="figure-caption text-center">uibuilder: drag in the background</figcaption>
+</figure>
+
+<p>Give it a label such as ‘background’ on the right hand side of the screen.  And adjust the width to fill the box (it is easier to do this using the width text box on the right hand side of the screen). Now we need to create a circle that trump will sit in:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder2.png" class="thumbnail" width="60%" alt="uibuilder: drag in the background" />
+  <figcaption class="figure-caption text-center">uibuilder: drag in a circle </figcaption>
+</figure>
+
+<p>You can set the attributes of the circle on the right hand side of the screen.  Give it a label such as “backbluecircle” and a “fill” of #203C51.  Now we will pull in the pointer that moves round based on the tweet value.  Click on <img src="/images/tutorial/gauge/librarybutton.png" style="display:inline-block; width: 30px" /> again and drag in the stick with the missile on top:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder3.png" class="thumbnail" width="60%" alt="uibuilder: drag in the background" />
+  <figcaption class="figure-caption text-center">uibuilder: drag in the pointer </figcaption>
+</figure>
+
+<p>Give it a label such as “pointer”. Let’s also add a place for the tweet to be shown.  Drag in some text from the palette (the A icon):</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder4.png" class="thumbnail" width="60%" alt="uibuilder: drag in text for tweet" />
+  <figcaption class="figure-caption text-center">uibuilder: drag in text for tweet </figcaption>
+</figure>
+
+<p>Give it a label such as ‘tweet’ and set the text to something like ‘trump latest tweet’, which is the initial value it will be given.</p>
+
+<h5 id="connect-up-some-data">connect up some data</h5>
+
+<p>Ok lets connect up some data to what we currently have.  First, we want our tweet text to show the latest tweet.  Select the text then on the right hand side, click on ‘mapper’.  This will give a list of all data that is currently connected to this node. If you click on “tweet sentiment”, you will see that it has a breakdown of its attributes (which is why you needed to write the json-schema earlier!).  For sources, click on ‘tweet’ and for attributes click on ‘text’.  So we are saying map the tweet from our data to the ‘text’ of our text.</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder5.png" class="thumbnail" width="60%" alt="uibuilder: map tweet to text" />
+  <figcaption class="figure-caption text-center">uibuilder: map tweet to text </figcaption>
+</figure>
+
+<p>Once done, you should see a new ‘transformer’ has been created.  Transformers allow us to modify the way the mapping works (which we shall see shortly).</p>
+
+<p>We want our pointer to rotate round the circle, with the pointer getting closer to 12 o’clock (doomsday) with the most negative sentiment score (10).  Click on the pointer, and in the mapper window, we want to connect the source sentiment to the attribute rotation.  Again this will set up a transformer.  Unlike the previous mapping the relationship between sentiment (0-10) to rotation (0-360) is not one-to-one.  We want to adjust it, which we can do by clicking on the transformer that has just been created (tweet sentiment:sentiment -&gt; pointer:rotate).  The transformer shows us a bunch of detail:</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder6.png" class="thumbnail" width="60%" alt="uibuilder: sentiment transformer" />
+  <figcaption class="figure-caption text-center">uibuilder: sentiment transformer</figcaption>
+</figure>
+
+<p>Instead of the default:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="err">`</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="nx">sentiment</span><span class="o">%</span><span class="mi">360</span><span class="p">})</span><span class="err">`</span>
+</code></pre>
+</div>
+
+<p>We want:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="err">`</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="nx">sentiment</span><span class="o">/</span><span class="mi">10</span><span class="o">*</span><span class="mi">360</span><span class="p">})</span><span class="err">`</span>
+</code></pre>
+</div>
+
+<p>i.e. rotate as a fraction of the highest score (10).  Once changed, click on ok.</p>
+
+<p>Let’s test what we have so far.  Click on ok, then click on ‘test’ and wait for the container to build. If all works ok, after a while a new tweet will come in and update the text, and the pointer will rotate round the circle (based on sentiment score):</p>
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder7.png" class="thumbnail" width="60%" alt="uibuilder: test output" />
+  <figcaption class="figure-caption text-center">uibuilder: test output</figcaption>
+</figure>
+
+
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
