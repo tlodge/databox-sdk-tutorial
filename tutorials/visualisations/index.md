@@ -11,7 +11,7 @@ This set of tutorials will take you through the tools for building visualisation
 - UIBuilder
 
 
-All of these can be hooked directly to the **app** node which will present the visualisations in the databox dashboard.
+All of these can be hooked directly to the **app** node which will present the visualisations in the databox dashboard.  Note that if you want to create svg-based visualisations using the UIBuilder, we'd recommend using a graphics package such as [Inkscape](https://inkscape.org/) or [Affinity Designer](https://affinity.serif.com).
 
 <table>
   <thead>
@@ -34,6 +34,12 @@ All of these can be hooked directly to the **app** node which will present the v
       <td>uibuilder</td>
       <td>this takes the light reading from sensingkit and renders the value on a svg gauge </td>
       <td>databox.tutorial-light-gauge</td>
+    </tr>
+    <tr>
+      <td><a href="/tutorials/visualisations/trump">trump clock</a></td>
+      <td>uibuilder</td>
+      <td>this renders a doomsday clock whose values change based on the sentiment score from tweets</td>
+      <td>databox.tutorial-trump</td>
     </tr>
     <tr>
       <td><a href="/tutorials/visualisations/accelerometer">accelerometer trail</a></td>

@@ -30,6 +30,11 @@ There are a bunch of containers that the sdk uses, and this is a listing of what
       <td>This is the container that creates mock data for testing. The base image is tlodge/databox-datasource-mock-base.</td>
     </tr>
     <tr>
+      <td>tlodge/databox-red</td>
+      <td><a href="https://github.com/tlodge/databox-nodered-nodes">https://github.com/tlodge/databox-nodered-nodes</a></td>
+      <td>This is the base images used to build TEST containers.  It is an instance of node-red alongside the nodes that are supported in the SDK.  The nodes can send messages to the databox-test-server over json-sockets can send messages to the client over websockets</td>
+    </tr>
+    <tr>
       <td>tlodge/databox-sdk-red</td>
       <td><a href="https://github.com/tlodge/node-red-app-webserver">https://github.com/tlodge/node-red-app-webserver</a></td>
       <td>This is the node-red execution environment and webserver that is used to create a databox app. Node-red nodes can communicate with the webserver over json-sockets, and the webserver then pushes messages to the client over websockets.  The base image is tlodge/node-red-app-webserver-base </td>

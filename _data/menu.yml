@@ -23,6 +23,8 @@
       subcategories:
         - subtitle: "light gauge"
           subhref: "/tutorials/visualisations/gauge/"
+        - subtitle: "trump clock"
+          subhref: "/tutorials/visualisations/trump/" 
         - subtitle: "accelerometer trail"
           subhref: "/tutorials/visualisations/accelerometer/"
     - subtitle: "actuation"

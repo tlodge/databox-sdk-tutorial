@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Databox SDK Tutorial : visualisation tutorials</title>
     <link rel="stylesheet" href="/css/foundation/app.css">
     <link rel="stylesheet" href="/css/foundation/docs.css">
   </head>
@@ -29,8 +29,8 @@
 
       <div class="callout large primary">
       <div class="row column text-center">
-        <div style="text-align:center; margin-bottom:10px"><img src="/images/logo.svg" width="10%"/></div>
-        <h2>visualisation tutorials</h2>
+        
+        <h2><img src="/images/logo.svg" style="display:inline-block; width: 8%"> visualisation tutorials</h2>
       </div>
     </div>
       <div class="cell medium-auto medium-cell-block-container" >
@@ -79,6 +79,8 @@
               
                   <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
               
+                  <li> <a href="/tutorials/visualisations/trump/">trump clock</a></li>
+              
                   <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
               
          </ul>
@@ -121,7 +123,7 @@
   <li>UIBuilder</li>
 </ul>
 
-<p>All of these can be hooked directly to the <strong>app</strong> node which will present the visualisations in the databox dashboard.</p>
+<p>All of these can be hooked directly to the <strong>app</strong> node which will present the visualisations in the databox dashboard.  Note that if you want to create svg-based visualisations using the UIBuilder, we’d recommend using a graphics package such as <a href="https://inkscape.org/">Inkscape</a> or <a href="https://affinity.serif.com">Affinity Designer</a>.</p>
 
 <table>
   <thead>
@@ -144,6 +146,12 @@
       <td>uibuilder</td>
       <td>this takes the light reading from sensingkit and renders the value on a svg gauge </td>
       <td>databox.tutorial-light-gauge</td>
+    </tr>
+    <tr>
+      <td><a href="/tutorials/visualisations/trump">trump clock</a></td>
+      <td>uibuilder</td>
+      <td>this renders a doomsday clock whose values change based on the sentiment score from tweets</td>
+      <td>databox.tutorial-trump</td>
     </tr>
     <tr>
       <td><a href="/tutorials/visualisations/accelerometer">accelerometer trail</a></td>
