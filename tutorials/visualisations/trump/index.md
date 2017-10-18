@@ -7,7 +7,7 @@ title: tutorial - trump clock
 duration: 20 minutes
 ---
 
-This tutorial will get you familiar with using the UIBuilder to build high quality data-driven realtime visualisations.  By the end you will have a picture of trump that changes in response to the sentiment analysis performed on incoming tweets.  Trump's arm and the clock pointer will move in response to the sentiment score of the current tweet, and the tweet will be displayed on the green bar beneath trump.  All of the graphics have ben pre-made for you.
+This tutorial will get you familiar with using the **uibuilder** to build data-driven realtime visualisations.  By the end you will have a picture of President Trump that changes in response to the sentiment analysis performed on incoming tweets.  Trump's arm and the clock pointer will move in response to the sentiment score of the current tweet, and the tweet will be displayed on the green bar beneath trump.  All of the graphics have ben pre-made for you.
 
 <figure class="figure">
   <img src="/images/tutorial/trump/apptest.png" class="thumbnail" width="60%" alt="trump clock">
@@ -83,7 +83,7 @@ return {
 
 ```
 
-Finally, there is a bit of a sting in the tail.  All nodes in the sdk have associated data 'schemas' which allow nodes to know the format of data coming in or expected from their outputs.  In order to use the data from the dbfunction, the **uibuilder** node will need to know the format of the message coming in.  You'll see a final box in the dbfunction called 'output schema', where the details of the format of the output can be added.   The sdk uses [json schema](http://json-schema.org/) to define messages.  The messages coming from this node can be described in json-schema as:
+Finally, there is a bit of a sting in the tail.  All nodes in the sdk have data 'schemas' which provide nodes with the format of data coming in to, or expected from, their outputs.  In order to use the data from the dbfunction, the **uibuilder** node will need to know the schema of the message coming in.  You'll see a final box in the dbfunction called 'output schema', where the details of the format of the output can be added.   The sdk uses [json schema](http://json-schema.org/) to define messages.  The messages coming from this node can be described in json-schema as:
 
 ```javascript
 {
@@ -138,7 +138,7 @@ Give it a label such as "pointer". Let's also add a place for the tweet to be sh
 Give it a label such as 'tweet' and set the text to something like 'trump latest tweet', which is the initial value it will be given.
 
 
-##### connect up some data 
+##### 4.connect up some data 
 
 Ok lets connect up some data to what we currently have.  First, we want our tweet text to show the latest tweet.  Select the text then on the right hand side, click on 'mapper'.  This will give a list of all data that is currently connected to this node. If you click on "tweet sentiment", you will see that it has a breakdown of its attributes (which is why you needed to write the json-schema earlier!).  For sources, click on 'tweet' and for attributes click on 'text'.  So we are saying map the tweet from our data to the 'text' of our text.
 
@@ -170,11 +170,32 @@ return `rotate(${sentiment/10*360})`
 
 i.e. rotate as a fraction of the highest score (10).  Once changed, click on ok.
 
+##### 5.test what we have
+
 Let's test what we have so far.  Click on ok, then click on 'test' and wait for the container to build. If all works ok, after a while a new tweet will come in and update the text, and the pointer will rotate round the circle (based on sentiment score):
 
 <figure class="figure">
-  <img src="/images/tutorial/trump/uibuilder7.png" class="thumbnail" width="60%" alt="uibuilder: test output">
-  <figcaption class="figure-caption text-center">uibuilder: test output</figcaption>
+  <img src="/images/tutorial/trump/uibuilder7.png" class="thumbnail" width="60%" alt="app: test output">
+  <figcaption class="figure-caption text-center">app: test output</figcaption>
 </figure>
+
+Note that the tweets are simply mocked data (so won't represent what will be finally seen).  If you are happy with what you have so far, it's worth saving it (click on SAVE on the toolbar)
+
+##### 6.add remaining graphics and connect remaining data
+
+The remaining steps should be relatively straighforward.  You need to add another white circle,  the Trump graphic, a green background for the tweet text and the red button and the Trump arm:
+
+<figure class="figure">
+  <img src="/images/tutorial/trump/uibuilder8.png" class="thumbnail" width="60%" alt="uibuilder: final graphics">
+  <figcaption class="figure-caption text-center">uibuilder: final graphics</figcaption>
+</figure>
+
+The Trump arm must also rotate in response to sentiment.  Select the arm and make sure you are on the 'mapping' tab.  Select sentiment as the source and rotate as the attribute.  Click on the transformer to modify the default transform to:
+
+```javascript
+return `rotate(${37-(sentiment/10*37)})
+```
+
+Once done, click on OK at the bottom of the uibuilder dialogue.  Test it again.  If all works ok, click on "PUBLISH" to publish it.
 
 

@@ -50,14 +50,5 @@ The SDK is principally concerned with the first 5 i.e:
 5. Publish the app to a databox app store
 
 
-The purpose of the databox SDK is to streamline each of these stages to get you building and deploying apps as efficiently as possible.   The databox (dashboard)[/gettingstarted/dashboard] supports stages 6-9.
-
-### data schemas
-
-Given that databox apps will typically be operating on one or more sources of data there are a couple of features of the sdk that help you to keep track of the format of data as it moves through your app.  All nodes in a databox app are annotated with their data schema (using json-schema).  When you initially wire up an app, the sdk will do all it can to let you know the format of data flowing into a node, and the expected format of data flowing out of a node.   
-
-### testing an app
-
-The databox sdk provides mock data to test apps against during the development process.  When you test a flow, all input data sources will emit this test data, and, where possible, you will be able to inpect simulated output (for example the 'bulb' output node will show a webpage with a bulb that will turn on or off in response to data). The databox sdk also provides a 'debug' node which is crucial for testing an app prior to publication.  The outputs from all nodes in a flow can be hooked up to a debug node to inspect output data, which can be paused and restarted at any time.
-
+The purpose of the databox SDK is to streamline each of these stages to get you building and deploying apps as efficiently as possible.   The databox [dashboard](/gettingstarted/dashboard) supports stages 6-9.
 

@@ -11,17 +11,17 @@ title:  installing databox and the sdk
  - docker
  - git
 
- We also recommend that you install the databox dashboard app, which can be found on Google Play (and Apple's app store..) as this will give you a few sensors to play with.  If you want to use the sdk, you will need a [github](https://github.com) account
+ We also recommend that you install the databox dashboard app, which can be found on Google Play (and Apple's app store..) as this will give you a few sensors to play with.  If you want to use the sdk, you will need a <a href="https://github.com" target="_blank">github</a>account
 
 
 ### Installing docker
 
-Instructions for installing docker on mac can be found [here](https://docs.docker.com/docker-for-mac/install/). Instructions for installing on other operating systems can be found [here](https://docs.docker.com/engine/installation/)
+Instructions for installing docker on mac can be found <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank">here</a>. Instructions for installing on other operating systems can be found [here](https://docs.docker.com/engine/installation/).  Once installed **check that docker is running**.  You should see a whale icon on your mac menu bar (top right hand side), and if you click in that, it should say "Docker is running".
 
 
 ### Installing git
 
-You'll need to install git (and databox) using the mac's **Terminal** application; open Finder, click on Appilications, then Utilities and then Terminal.   This will open a new command line window. If you have any problems, watch [this](https://www.youtube.com/watch?v=zw7Nd67_aFw).  First, check to see if git is already installed, by typing:
+You'll need to install git (and databox) using the mac's **Terminal** application; open Finder, click on Applications, then Utilities and then Terminal.   This will open a new command line window. If you have any problems, watch <a href="https://www.youtube.com/watch?v=zw7Nd67_aFw" target="_blank">this</a>.  First, check to see if git is already installed, by typing:
 
 ```
 git --version
@@ -98,6 +98,7 @@ databox_container-manager.1.u4k4d2kafu4f@moby    | Starting UI Server!!
 
 ``` 
 
+If there are any errors (there can be network timeouts etc), type **command C** then type ./databox-stop  and when it has finished, type ./databox-start sdk
 
 To check that the databox is running, open up a browser and go to <a href="http://127.0.0.1:8989" target="_blank">http://127.0.0.1:8989</a>.  You should see something like this:
 
@@ -113,7 +114,7 @@ To check that the sdk is running, go to <a href="http://127.0.0.1:8086" target="
   <figcaption class="figure-caption text-center">nearly there</figcaption>
 </figure>
 
-Follow the instructions on that page to set up a github application and add a ClientID and Client Secret.  Once restarted you should see:
+Follow the instructions on that page to set up a github application and add a ClientID and Client Secret.  It will ask you to restart the databox once you have updated a file.  Type **command C** to be able to type the commands in the terminal.  Once restarted you should see:
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/sdk/sdklogin.png" width="50%"  alt="sdk login">
