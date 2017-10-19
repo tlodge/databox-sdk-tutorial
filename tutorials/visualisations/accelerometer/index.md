@@ -59,7 +59,7 @@ We can do exactly the same for the other circle.  By the end you should be left 
 
 Following a similar process as before, we now want to add mappings that will change other attributes of the circles in response to the sensor data.  
 
-We want to move the circles into the center of the screen when the amplitude of the x or y sensor reading is at a maximum (which is roughly 38, as we saw when we configured the sensingkit node). Let's create a new mapping for the yaxis circle.  Click on the yaxis circle, then click on mapper, then select the sensingkit <i>Y<i> source and the <i>cy<i> attribute.  Click on the newly created transformer and add the following:
+We want to move the circles into the center of the screen when the amplitude of the x or y sensor reading is at a maximum (which is roughly 38, as we saw when we configured the sensingkit node). Let's create a new mapping for the yaxis circle.  Click on the yaxis circle, then click on mapper, then select the sensingkit <i>Y</i> source and the <i>cy</i> attribute.  Click on the newly created transformer and add the following:
 
 ```javascript
 const value = 38 + y;
