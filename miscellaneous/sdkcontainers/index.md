@@ -32,7 +32,7 @@ There are a bunch of containers that the sdk uses, and this is a listing of what
     <tr>
       <td>tlodge/databox-red</td>
       <td><a href="https://github.com/tlodge/databox-nodered-nodes">https://github.com/tlodge/databox-nodered-nodes</a></td>
-      <td>This is the base images used to build TEST containers.  It is an instance of node-red alongside the nodes that are supported in the SDK.  The nodes can send messages to the databox-test-server over json-sockets can send messages to the client over websockets</td>
+      <td>This is the base images used to build TEST containers.  It is an instance of node-red alongside the nodes that are supported in the SDK.  The nodes can send messages to the databox-test-server over json-sockets which send messages to the client over websockets</td>
     </tr>
     <tr>
       <td>tlodge/databox-sdk-red</td>
