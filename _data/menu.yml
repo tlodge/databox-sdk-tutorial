@@ -35,7 +35,7 @@
         - subtitle: "flash bulbs"
           subhref: "/tutorials/functions/bulb/"
 
-- title: "devloping without the sdk"
+- title: "developing without the sdk"
   subcategories:
     - subtitle: "modifying existing apps and drivers"
       subhref: "/devlopingwithoutsdk/modifyexisting"

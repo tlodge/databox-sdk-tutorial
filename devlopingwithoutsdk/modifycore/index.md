@@ -1,4 +1,4 @@
 ---
 layout: base
-title:  modifying Databox core components
+title:  modifying databox core components
 ---
