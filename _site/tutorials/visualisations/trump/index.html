@@ -102,6 +102,19 @@
 
   
     <ul class="menu side">
+      <li class="docs-nav-title">developing without the sdk</li>
+    
+      <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
+      
+    
+      <li> <a href="/devlopingwithoutsdk/modifycore">modifying core components</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
       <li class="docs-nav-title">miscellaneous</li>
     
       <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
@@ -197,13 +210,15 @@
 
 <p>So a variable called <i>msg_payload_value</i> has been created with the tweet assigned to it.</p>
 
-<p>Now that we have the message, we can run it through the <a href="https://github.com/thisandagain/sentiment">sentiment</a> library, which will then provide an object with <i>score</i> (which is the aggregate value of the sentiment values for each token in the string) and <i>comparative</i> which is a normalised score ranging from -5 to 5 (with 5 being the most positive, 0 neutral and -5 the most negative).  To make this easier to work with we convert it to a scale from 0 to 10, where 10 is the most negative and 0 the most positive.  Our code ends up as:</p>
+<p>Now that we have the message, we can run it through the <a href="https://github.com/thisandagain/sentiment">sentiment</a> library, which will then provide an object with <i>score</i> (which is the aggregate value of the sentiment values for each token in the string) and <i>comparative</i> which is a normalised score ranging from -1 to 1 (with 1 being the most positive, 0 neutral and -1 the most negative).  To make this easier to work with we convert it to a scale from 0 to 1, where 0 is the most positive and 1 the most negative.  Our code ends up as:</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sentiment</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"sentiment"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">sentiment</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+<span class="c1">//r.comparative is between -1 and 1, flip it so -1=happy and 1=sad, then shift by 1 so 0=happy,2=sad, then divide by 2 to get range 0-1</span>
 
-<span class="c1">//r.comparative is between -5 and 5, so convert o scale 0-10 (where 0 is most negative)</span>
-<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">comparative</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span> <span class="nl">score</span><span class="p">:</span> <span class="nx">$</span><span class="p">{</span><span class="nx">r</span><span class="p">.</span><span class="nx">score</span><span class="p">}</span> <span class="nl">comparitive</span><span class="p">:</span><span class="nx">$</span><span class="p">{(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nx">r</span><span class="p">.</span><span class="nx">comparative</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nx">r</span><span class="p">.</span><span class="nx">comparative</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 
 <span class="k">return</span> <span class="p">{</span>
     <span class="na">payload</span><span class="p">:</span> <span class="p">{</span>
@@ -211,9 +226,10 @@
         <span class="na">sentiment</span><span class="p">:</span> <span class="nx">score</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
 </code></pre>
 </div>
+
+<p>Note that we put in a console.log;  this will print a debug message to the console window when you come to test; it’s a useful way to check what is happening within a function (whereas the debugger node will show you what is returned from the function)</p>
 
 <p>Finally, there is a bit of a sting in the tail.  All nodes in the sdk have data ‘schemas’ which provide nodes with the format of data coming in to, or expected from, their outputs.  In order to use the data from the dbfunction, the <strong>uibuilder</strong> node will need to know the schema of the message coming in.  You’ll see a final box in the dbfunction called ‘output schema’, where the details of the format of the output can be added.   The sdk uses <a href="http://json-schema.org/">json schema</a> to define messages.  The messages coming from this node can be described in json-schema as:</p>
 
@@ -280,7 +296,7 @@
 
 <p>Once done, you should see a new ‘transformer’ has been created.  Transformers allow us to modify the way the mapping works (which we shall see shortly).</p>
 
-<p>We want our pointer to rotate round the circle, with the pointer getting closer to 12 o’clock (doomsday) with the most negative sentiment score (10).  Click on the pointer, and in the mapper window, we want to connect the source sentiment to the attribute rotation.  Again this will set up a transformer.  Unlike the previous mapping the relationship between sentiment (0-10) to rotation (0-360) is not one-to-one.  We want to adjust it, which we can do by clicking on the transformer that has just been created (tweet sentiment:sentiment -&gt; pointer:rotate).  The transformer shows us a bunch of detail:</p>
+<p>We want our pointer to rotate round the circle, with the pointer getting closer to 12 o’clock (doomsday) with the most negative sentiment score (1).  Click on the pointer, and in the mapper window, we want to connect the source sentiment to the attribute rotation.  Again this will set up a transformer.  Unlike the previous mapping the relationship between sentiment (0-1) to rotation (0-360) is not one-to-one.  We want to adjust it, which we can do by clicking on the transformer that has just been created (tweet sentiment:sentiment -&gt; pointer:rotate).  The transformer shows us a bunch of detail:</p>
 
 <figure class="figure">
   <img src="/images/tutorial/trump/uibuilder6.png" class="thumbnail" width="60%" alt="uibuilder: sentiment transformer" />
@@ -295,11 +311,11 @@
 
 <p>We want:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="err">`</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="nx">sentiment</span><span class="o">/</span><span class="mi">10</span><span class="o">*</span><span class="mi">360</span><span class="p">})</span><span class="err">`</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="err">`</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="nx">sentiment</span><span class="o">*</span><span class="mi">360</span><span class="p">})</span><span class="err">`</span>
 </code></pre>
 </div>
 
-<p>i.e. rotate as a fraction of the highest score (10).  Once changed, click on ok.</p>
+<p>i.e. rotate as a fraction of the highest score (1).  Once changed, click on ok.</p>
 
 <h5 id="5test-what-we-have">5.test what we have</h5>
 
@@ -321,9 +337,9 @@
   <figcaption class="figure-caption text-center">uibuilder: final graphics</figcaption>
 </figure>
 
-<p>The Trump arm must also rotate in response to sentiment.  Select the arm and make sure you are on the ‘mapping’ tab.  Select sentiment as the source and rotate as the attribute.  Click on the transformer to modify the default transform to:</p>
+<p>The Trump arm must also rotate in response to sentiment.  Select the arm and make sure you are on the ‘mapping’ tab.  Select sentiment as the source and rotate as the attribute.  This time we want Trump’s arm to rotate between 0 and 37 degrees.  Click on the transformer to modify the default transform to:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="err">`</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="mi">37</span><span class="o">-</span><span class="p">(</span><span class="nx">sentiment</span><span class="o">/</span><span class="mi">10</span><span class="o">*</span><span class="mi">37</span><span class="p">)})</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="err">`</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="mi">37</span><span class="o">-</span><span class="p">(</span><span class="nx">sentiment</span><span class="o">*</span><span class="mi">37</span><span class="p">)})</span><span class="err">`</span>
 </code></pre>
 </div>
 

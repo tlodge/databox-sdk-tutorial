@@ -102,6 +102,19 @@
 
   
     <ul class="menu side">
+      <li class="docs-nav-title">developing without the sdk</li>
+    
+      <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
+      
+    
+      <li> <a href="/devlopingwithoutsdk/modifycore">modifying core components</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
       <li class="docs-nav-title">miscellaneous</li>
     
       <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
@@ -189,7 +202,7 @@
 
 <p>Following a similar process as before, we now want to add mappings that will change other attributes of the circles in response to the sensor data.</p>
 
-<p>We want to move the circles into the center of the screen when the amplitude of the x or y sensor reading is at a maximum (which is roughly 38, as we saw when we configured the sensingkit node). Let’s create a new mapping for the yaxis circle.  Click on the yaxis circle, then click on mapper, then select the sensingkit <i>Y<i> source and the <i>cy<i> attribute.  Click on the newly created transformer and add the following:</i></i></i></i></p>
+<p>We want to move the circles into the center of the screen when the amplitude of the x or y sensor reading is at a maximum (which is roughly 38, as we saw when we configured the sensingkit node). Let’s create a new mapping for the yaxis circle.  Click on the yaxis circle, then click on mapper, then select the sensingkit <i>Y</i> source and the <i>cy</i> attribute.  Click on the newly created transformer and add the following:</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">38</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
 <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">value</span><span class="o">/</span><span class="mi">76</span><span class="p">)</span> <span class="o">*</span> <span class="nx">h</span><span class="p">)</span>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Databox SDK Tutorial : developing without the sdk</title>
     <link rel="stylesheet" href="/css/foundation/app.css">
     <link rel="stylesheet" href="/css/foundation/docs.css">
   </head>
@@ -78,6 +78,8 @@
               
                   <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
               
+                  <li> <a href="/tutorials/visualisations/trump/">trump clock</a></li>
+              
                   <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
               
          </ul>
@@ -100,7 +102,7 @@
 
   
     <ul class="menu side">
-      <li class="docs-nav-title">devloping without the sdk</li>
+      <li class="docs-nav-title">developing without the sdk</li>
     
       <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
       
@@ -124,7 +126,7 @@
            </div>
             <div class="cell medium-10 medium-cell-block-y">
               <div class="tutorialcontent">
-                <p>Building app with the SDK can be quick and fun. However, it has a number of limitations. For example,</p>
+                <p>Building app with the SDK can be quick and fun. However, it has a number of limitations, for example:</p>
 
 <ul>
   <li>The final app will be built on NodeJS which produces large images and can be memory inefficient</li>
@@ -132,7 +134,7 @@
   <li>Some data sources aren’t supported in the SDK</li>
 </ul>
 
-<p>To overcome these limitations it is possible to develop apps outside of the SDK.  this guide will give you an introduction to doing so.  to explain how to do this we will add it currently existing Databox Apps.</p>
+<p>To overcome these limitations it is possible to develop apps outside of the SDK.  This guide will give you an introduction to doing so.  To explain how to do this we will reference currently existing Databox Apps.</p>
 
 <h4 id="getting-the-source-code">Getting the source code</h4>
 
@@ -151,14 +153,14 @@
 
 <blockquote>
   <p>Note: if you are starting a new app then you can manually create a folder. As a minimum, you will need a Dockerfile and a databox-manifest.json to be able to install the app/driver.
-Note: if you want to modify this component fork it on GitHub fist the use <code class="highlighter-rouge">./databox-install-component [YOUR_USERNAME]/app-os-monitor</code> once you have made an tested your changes then you can submit a pull request back to the original repository</p>
+Note: if you want to modify this component, fork it on GitHub fist the use <code class="highlighter-rouge">./databox-install-component [YOUR_USERNAME]/app-os-monitor</code> once you have made an tested your changes then you can submit a pull request back to the original repository</p>
 </blockquote>
 
 <p>Once this command has completed you can edit the code in ./app-os-monitor to make your changes.</p>
 
 <h4 id="checking-the-app-is-available-locally">Checking the app is available locally</h4>
 
-<p>Now that you have installed app-os-monitor locally it is available from the remote an local app-server. When you go back into the databox UI and install  app-os-monitor there will be a drop down next to the install button which allows you to select the required store.</p>
+<p>Now that you have installed app-os-monitor locally it is available from the remote or local app-server. When you go back into the databox UI and install  app-os-monitor there will be a drop down next to the install button which allows you to select the required store.</p>
 
 <blockquote>
   <p>Note: If you are developing an app/driver only available locally then there will be no option.</p>
@@ -194,7 +196,7 @@ docker build -t [APP-NAME] .
 <p>Then you can go back into the databox UI and restart the app using the refresh button on the app list screen. This works for drivers too.</p>
 
 <blockquote>
-  <p>Note: This is a quick way to get started but sometimes using a different approach is needed see <a href="https://github.com/me-box/documents/blob/master/guides/docker-dev.md">docker-dev.md</a></p>
+  <p>Note: This is a quick way to get started but sometimes a different approach is needed, see: <a href="https://github.com/me-box/documents/blob/master/guides/docker-dev.md">docker-dev.md</a></p>
 </blockquote>
 
 <h4 id="debugging-problems">Debugging problems</h4>

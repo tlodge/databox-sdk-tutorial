@@ -65,14 +65,16 @@ const {ts:msg_payload_ts,value:msg_payload_value} = msg_payload;
 
 So a variable called <i>msg_payload_value</i> has been created with the tweet assigned to it.
 
-Now that we have the message, we can run it through the [sentiment](https://github.com/thisandagain/sentiment) library, which will then provide an object with <i>score</i> (which is the aggregate value of the sentiment values for each token in the string) and <i>comparative</i> which is a normalised score ranging from -5 to 5 (with 5 being the most positive, 0 neutral and -5 the most negative).  To make this easier to work with we convert it to a scale from 0 to 10, where 10 is the most negative and 0 the most positive.  Our code ends up as:
+Now that we have the message, we can run it through the [sentiment](https://github.com/thisandagain/sentiment) library, which will then provide an object with <i>score</i> (which is the aggregate value of the sentiment values for each token in the string) and <i>comparative</i> which is a normalised score ranging from -1 to 1 (with 1 being the most positive, 0 neutral and -1 the most negative).  To make this easier to work with we convert it to a scale from 0 to 1, where 0 is the most positive and 1 the most negative.  Our code ends up as:
 
 ```javascript
 var sentiment = require("sentiment");
 var r = sentiment(msg.payload.value);
+//r.comparative is between -1 and 1, flip it so -1=happy and 1=sad, then shift by 1 so 0=happy,2=sad, then divide by 2 to get range 0-1
 
-//r.comparative is between -5 and 5, so convert o scale 0-10 (where 0 is most negative)
-var score = (r.comparative * -1) + 5;
+console.log(`${msg.payload.value} score: ${r.score} comparitive:${(1 + (-1*r.comparative))/2}`)
+
+var score = (1 + (-1*r.comparative))/2;
 
 return {
     payload: {
@@ -80,8 +82,9 @@ return {
         sentiment: score,
     }
 }
-
 ```
+
+Note that we put in a console.log;  this will print a debug message to the console window when you come to test; it's a useful way to check what is happening within a function (whereas the debugger node will show you what is returned from the function)
 
 Finally, there is a bit of a sting in the tail.  All nodes in the sdk have data 'schemas' which provide nodes with the format of data coming in to, or expected from, their outputs.  In order to use the data from the dbfunction, the **uibuilder** node will need to know the schema of the message coming in.  You'll see a final box in the dbfunction called 'output schema', where the details of the format of the output can be added.   The sdk uses [json schema](http://json-schema.org/) to define messages.  The messages coming from this node can be described in json-schema as:
 
@@ -149,7 +152,7 @@ Ok lets connect up some data to what we currently have.  First, we want our twee
 
 Once done, you should see a new 'transformer' has been created.  Transformers allow us to modify the way the mapping works (which we shall see shortly).
 
-We want our pointer to rotate round the circle, with the pointer getting closer to 12 o'clock (doomsday) with the most negative sentiment score (10).  Click on the pointer, and in the mapper window, we want to connect the source sentiment to the attribute rotation.  Again this will set up a transformer.  Unlike the previous mapping the relationship between sentiment (0-10) to rotation (0-360) is not one-to-one.  We want to adjust it, which we can do by clicking on the transformer that has just been created (tweet sentiment:sentiment -> pointer:rotate).  The transformer shows us a bunch of detail:
+We want our pointer to rotate round the circle, with the pointer getting closer to 12 o'clock (doomsday) with the most negative sentiment score (1).  Click on the pointer, and in the mapper window, we want to connect the source sentiment to the attribute rotation.  Again this will set up a transformer.  Unlike the previous mapping the relationship between sentiment (0-1) to rotation (0-360) is not one-to-one.  We want to adjust it, which we can do by clicking on the transformer that has just been created (tweet sentiment:sentiment -> pointer:rotate).  The transformer shows us a bunch of detail:
 
 <figure class="figure">
   <img src="/images/tutorial/trump/uibuilder6.png" class="thumbnail" width="60%" alt="uibuilder: sentiment transformer">
@@ -165,10 +168,10 @@ return `rotate(${sentiment%360})`
 We want:
 
 ```javascript
-return `rotate(${sentiment/10*360})`
+return `rotate(${sentiment*360})`
 ```
 
-i.e. rotate as a fraction of the highest score (10).  Once changed, click on ok.
+i.e. rotate as a fraction of the highest score (1).  Once changed, click on ok.
 
 ##### 5.test what we have
 
@@ -190,10 +193,10 @@ The remaining steps should be relatively straighforward.  You need to add anothe
   <figcaption class="figure-caption text-center">uibuilder: final graphics</figcaption>
 </figure>
 
-The Trump arm must also rotate in response to sentiment.  Select the arm and make sure you are on the 'mapping' tab.  Select sentiment as the source and rotate as the attribute.  Click on the transformer to modify the default transform to:
+The Trump arm must also rotate in response to sentiment.  Select the arm and make sure you are on the 'mapping' tab.  Select sentiment as the source and rotate as the attribute.  This time we want Trump's arm to rotate between 0 and 37 degrees.  Click on the transformer to modify the default transform to:
 
 ```javascript
-return `rotate(${37-(sentiment/10*37)})`
+return `rotate(${37-(sentiment*37)})`
 ```
 
 Once done, click on OK at the bottom of the uibuilder dialogue.  Test it again.  If all works ok, click on "PUBLISH" to publish it.
