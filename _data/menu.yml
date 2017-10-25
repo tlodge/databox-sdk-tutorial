@@ -39,10 +39,12 @@
   subcategories:
     - subtitle: "modifying existing apps and drivers"
       subhref: "/devlopingwithoutsdk/modifyexisting"
-    - subtitle: "modifying core components"
-      subhref: "/devlopingwithoutsdk/modifycore"
-
+   
 - title: "miscellaneous"
   subcategories:
     - subtitle: "sdk containers"
       subhref: "/miscellaneous/sdkcontainers"
+    - subtitle: "sdk dev wishlist"
+      subhref: "/wishlist/"
+    - subtitle: "developing for the sdk"
+      subhref: "/developing/"

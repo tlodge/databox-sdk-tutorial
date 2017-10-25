@@ -107,9 +107,6 @@
       <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
       
     
-      <li> <a href="/devlopingwithoutsdk/modifycore">modifying core components</a></li>
-      
-    
     </ul>
   
 
@@ -118,6 +115,12 @@
       <li class="docs-nav-title">miscellaneous</li>
     
       <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
+      
+    
+      <li> <a href="/wishlist/">sdk dev wishlist</a></li>
+      
+    
+      <li> <a href="/developing/">developing for the sdk</a></li>
       
     
     </ul>
@@ -258,23 +261,22 @@
 
 <p>One important feature of the uibuilder that we have not yet explored is the ‘lifetime’ of our objects.  Once we have created an object, what happens if we want to create another one (with the same attributes) when the data changes in some way?  Consider a sensor that provides five temperature readings (t1,t2,t3,t4,t5), for 5 different parts of the house.  Each sensor will have a name (“t1”,”t2”,”t3”,”t4”,”t5”).  Lets say we want a simple visualisation that moves a circle up or down based on a temperature reading.  So one way we could do this is to create 5 circles in uibuilder and then map one circle to t1’s temperature reading, another to t2’s temperature reading and so on. It’s a bit laborious.  It would be much nicer if we could create a ‘generic’ circle that changes position according to a temperature and then tell uibuilder to clone this circle as needed. So in this case create a new circle whenever a sensor with a different name sends data i.e when “t1” sends its first data, clone the circle, when “t2” sends its first data, clone another circle and so on.</p>
 
-<p>This is perhaps easier to understand by example.  uibuilder has a concept of <strong>birth</strong> and <strong>death</strong>. Click on the yaxis circle and then click on ‘lifetime’.  You are given two options “bind to key” and “bind to function”.  Click on “bind to key”, now select “TS”.  We are telling uibuilder that whenever it sees a new “ts” value (which it will with every new data item), rather than modify the current circle, clone a new one.  Lets try this and see what happens.  Click on OK then click on test and wait for the container to build.  Now when you click on the app icon to see the test data, you should see something like:</p>
+<p>This is perhaps easier to understand by example.  uibuilder has a concept of <strong>birth</strong> and <strong>death</strong>. Click on any of your transformers (under the mappings tab) that modify an attribute of the yaxis circle (i.e sensingkit:ts-&gt;yaxis:cx, sensingkit:ts-&gt;yaxis:cy,sensingkit:ts-&gt;yaxis:r,sensingkit:ts-&gt;yaxis:opacity).  Up until now, all we have done is modify the code under the ‘transformer’ tab, but there is also  a “birth” and “death” tab. Click on the “birth” tab, and you are given three options “bind to key”, “bind to function” and “reset”.  Click on “bind to key”, now select “TS”.  We are telling uibuilder that whenever it sees a new “ts” value (which it will with every new data item), rather than modify the current circle, clone a new one.  Lets try this and see what happens.  Click on OK to save the change, then ok on the uibuilder.  Now click on test and wait for the container to build.  Now when you click on the app icon to see the test data, you should see something like:</p>
 
 <figure class="figure">
   <img class="thumbnail" src="/images/tutorial/accelerometer/step4.png" alt="update yaxis lifetime" />
   <figcaption class="figure-caption text-center">update yaxis lifetime</figcaption>
 </figure>
 
-<p>So a new yaxis circle is created with every new timestamp, whereas the xaxis circle behaves as before.  This looks nice, but creates a load of circles.  We want to clean up old ones.  We can do this by setting the death options.  The death options is a function that is evaluated with every new item of data received.  It passes in the svg object and returns true if the object should be removed, and false otherwise.  Set the death function to:</p>
+<p>So a new yaxis circle is created with every new timestamp, whereas the xaxis circle behaves as before.  This looks nice, but creates a load of circles.  We want to clean up old ones.  We can do this by setting the death options.  The death options is a function that is evaluated with every new item of data received.  Click back to any of the yaxis transformers and now click on “Death”. The Death function gets passed in the current source data for the mapping and must returns true if the object should be removed, and false otherwise.  Set the death function to:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">node</span><span class="p">.</span><span class="nx">ts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span> 
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">node</span><span class="p">.</span><span class="nx">ts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2000</span> 
 </code></pre>
 </div>
 
-<p>i.e. remove the node if it is older than half a second.  This might not look like much against the test data, but will look better when data is arriving much faster.  This is what will create the vapour trail effect.  To create the same for the xaxis circle, repeat the steps above (i.e bind to the ts key for the birth options, and add in the code to the death options.</p>
+<p>i.e. remove the node if it is older than a couple of seconds.  This might not look like much against the test data, but will look better when data is arriving much faster.  This is what will create the vapour trail effect.  To create the same for the xaxis circle, repeat the steps above (i.e bind to the ts key for the birth options, and add in the code to the death options.</p>
 
 <p>That’s it.  Lots covered in this tutorial, but have a play with it and to familiarise yourself with object births and deaths.</p>
-
 
                 </div>
               </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Databox SDK Tutorial : visualisation tutorials</title>
+    <title>Databox SDK Tutorial : sdk dev wishlist</title>
     <link rel="stylesheet" href="/css/foundation/app.css">
     <link rel="stylesheet" href="/css/foundation/docs.css">
   </head>
@@ -29,7 +29,7 @@
 
       <div class="callout large primary">
       <div class="row column text-center">
-        <h2><img src="/images/logo.svg" width="10%"/> visualisation tutorials</h2>
+        <h2><img src="/images/logo.svg" width="10%"/> sdk dev wishlist</h2>
       </div>
     </div>
       <div class="cell medium-auto medium-cell-block-container" >
@@ -129,53 +129,55 @@
            </div>
             <div class="cell medium-10 medium-cell-block-y">
               <div class="tutorialcontent">
-                <p>This set of tutorials will take you through the tools for building visualisations.  Theer are several nodes that allow you to present data graphically:</p>
+                <p>The SDK is still very much in its infancy.  The following is a list of dev that we’d like to look at.  Please speaks to us if you’d like to get involved!</p>
 
 <ul>
-  <li>Chartify</li>
-  <li>Listify</li>
-  <li>Webify</li>
-  <li>UIBuilder</li>
+  <li><strong>More processing nodes</strong></li>
 </ul>
 
-<p>All of these can be hooked directly to the <strong>app</strong> node which will present the visualisations in the databox dashboard.  Note that if you want to create svg-based visualisations using the UIBuilder, we’d recommend using a graphics package such as <a href="https://inkscape.org/">Inkscape</a> or <a href="https://affinity.serif.com">Affinity Designer</a>.</p>
+<p>You still need a reasonable amount of coding abilility to do anything uswful with the SDK.  We’d like to add more nodes that can get users building decent apps with minimal/zero coding effort.  Nodes such as filters, range mappers, translators etc would be great.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>tutorial</th>
-      <th>node used</th>
-      <th>description</th>
-      <th>example name in sdk</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="/gettingstarted/sdk">freememory</a></td>
-      <td>chartify</td>
-      <td>this takes the number of bytes free from the osmonitor node and displays it on a bar chart</td>
-      <td>databox.tutorial-freememory</td>
-    </tr>
-    <tr>
-      <td><a href="/tutorials/visualisations/gauge">light gauge</a></td>
-      <td>uibuilder</td>
-      <td>this takes the light reading from sensingkit and renders the value on a svg gauge </td>
-      <td>databox.tutorial-light-gauge</td>
-    </tr>
-    <tr>
-      <td><a href="/tutorials/visualisations/trump">trump clock</a></td>
-      <td>uibuilder</td>
-      <td>this renders a doomsday clock whose values change based on the sentiment score from tweets</td>
-      <td>databox.tutorial-trump</td>
-    </tr>
-    <tr>
-      <td><a href="/tutorials/visualisations/accelerometer">accelerometer trail</a></td>
-      <td>uibuilder</td>
-      <td>this renders the x and y values of an acclerometer as over time.  It uses more advanced uibuilder features </td>
-      <td>databox.tutorial-accelerometer-axes</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li><strong>Better type integration</strong></li>
+</ul>
+
+<p>Having nodes able to describe the type of data that they work with and output is a very useful feature, and is a crucial part of what makes nodes such as the uibuilder work.  However it’s very limited and doesn’t work well with function (dbfunction) nodes.  One possibility is to move the execution environment code from javascript to a typed language (or something like Typescript)</p>
+
+<ul>
+  <li><strong>Improvements to UIBuidler</strong></li>
+</ul>
+
+<p>The UI Builder node helps users to build high quality visualisations, but there’s much more that it could offer.  Other features we’d like to see are tweening, animations along paths, other output formats (e.g 3d/ canvas/ <a href="https://facebook.github.io/react-vr/]">VR</a>).</p>
+
+<ul>
+  <li><strong>Better testing/ test data</strong></li>
+</ul>
+
+<p>The test data from the mock data store is very limited.  We need to give developers much greater control over it for testing their apps.</p>
+
+<ul>
+  <li><strong>SDK for drivers</strong></li>
+</ul>
+
+<p>How/Can/Should the SDK be used to create drivers?  If so how?</p>
+
+<ul>
+  <li><strong>Historial data</strong></li>
+</ul>
+
+<p>The SDK currently only deals with live data.  Need to support historical queries.</p>
+
+<ul>
+  <li><strong>Better risk analysis/analytics</strong></li>
+</ul>
+
+<p>The risk analysis in the SDK is little more than a placeholder.  Much more work needs to be done to try and create more useful/accurate risk ratings.</p>
+
+<ul>
+  <li><strong>Code cleanup/refactoring</strong></li>
+</ul>
+
+<p>The SDK code had grown/developed/changed to fit with new ideas as the databox project has evolved.  It will benefit from a restructuring/refactoring to make easier to navigate and use.  Other work required are decent tests / frontend performance analysis.  We’d also like to get rid of the reliance on brace (used for code editing) as it is a chunky library.  We also need to streamline/shrink/improve our css/sass code (it’s a nasty mix of inline styles, old node red css and component specific scss/css imports).</p>
 
               </div>
            </div>
