@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Databox SDK Tutorial : sdk dev wishlist</title>
+    <title>Databox SDK Tutorial : sdk dev known issues</title>
     <link rel="stylesheet" href="/css/foundation/app.css">
     <link rel="stylesheet" href="/css/foundation/docs.css">
   </head>
@@ -29,7 +29,7 @@
 
       <div class="callout large primary">
       <div class="row column text-center">
-        <h2><img src="/images/logo.svg" width="10%"/> sdk dev wishlist</h2>
+        <h2><img src="/images/logo.svg" width="10%"/> sdk dev known issues</h2>
       </div>
     </div>
       <div class="cell medium-auto medium-cell-block-container" >
@@ -132,25 +132,17 @@
            </div>
             <div class="cell medium-10 medium-cell-block-y">
               <div class="tutorialcontent">
-                <p>We have not yet got decent docuementation on how to develop the SDK.   The front-end code is written in react/redux, and was an originally a partial port of the node-red code.  To have a play you’ll need to have docker and git installed on your machine.  Then do the following:</p>
+                <ul>
+  <li><strong>Chrome fullscreen</strong></li>
+</ul>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">clone</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//github.com/me-box/platform-sdk.git</span>
-<span class="nx">cd</span> <span class="p">.</span><span class="o">/</span><span class="nx">platform</span><span class="o">-</span><span class="nx">sdk</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">server</span>
-<span class="nx">npm</span> <span class="nx">run</span> <span class="nx">install</span>
-<span class="nx">npm</span> <span class="nx">run</span> <span class="nx">dev</span>
-</code></pre>
-</div>
+<p>When you view the uibuilder in chrome fullsreen, if you move an object it will be displaced by a random amount.  Seems that the mouse stops listening and so the offsets can’t be adjusted</p>
 
-<p>This will pull all of the docker containers the sdk is dependent on and start the server.</p>
+<ul>
+  <li><strong>Low resolution screens</strong></li>
+</ul>
 
-<p>Now to run the sdk client in dev mode (i.e. open another terminal and move to the platform-sdk/src/client directory and) run:</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span>
-<span class="nx">npm</span> <span class="nx">start</span>
-</code></pre>
-</div>
-
-<p>This will create a dev server (with hot reloading) that serves up the client, and proxies requests to the dev server.</p>
+<p>SDK works on lower-resolution screens, but it’s diffcult to use.  Need to tighten up space.</p>
 
               </div>
            </div>

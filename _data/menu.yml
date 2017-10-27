@@ -48,3 +48,5 @@
       subhref: "/wishlist/"
     - subtitle: "developing for the sdk"
       subhref: "/developing/"
+    - subtitle: "known issues"
+      subhref: "/knownissues/"
