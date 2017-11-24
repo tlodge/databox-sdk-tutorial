@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databox SDK Tutorial : databox sdk nodes</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+
+    <div class="grid-y medium-grid-frame">
+      <!-- Start Top Bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">databox</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="https://github.com/me-box/platform-sdk">sdk github</a></li>
+          <li><a href="https://github.com/me-box/databox">databox github</a></li>
+          <li><a href=" http://www.databoxproject.uk">databox project</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+      <div class="callout large primary">
+      <div class="row column text-center">
+        <h2><img src="/images/logo.svg" width="10%"/> databox sdk nodes</h2>
+      </div>
+    </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x" >
+           <div class="cell medium-2 medium-cell-block-y menu">
+            <div>
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">overview</li>
+    
+      <li> <a href="/overview/databox">databox overview</a></li>
+      
+    
+      <li> <a href="/overview/sdk">sdk overview</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">getting started</li>
+    
+      <li> <a href="/gettingstarted/quickstart">quick start</a></li>
+      
+    
+      <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/sdk">a first look at the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/dashboard">a first look at the dashboard</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk tutorials</li>
+    
+      <li> <a href="/tutorials/visualisations">visualisations</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/trump/">trump clock</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
+              
+         </ul>
+      
+    
+      <li> <a href="/tutorials/actuation">actuation</a></li>
+      
+    
+      <li> <a href="/tutorials/functions">functions</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/functions/bulb/">flash bulbs</a></li>
+              
+         </ul>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">G54ENA</li>
+    
+      <li> <a href="/g54ena/">a quick sdk primer</a></li>
+      
+    
+      <li> <a href="/g54ena/nodes">summary of SDK nodes</a></li>
+      
+    
+      <li> <a href="/g54ena/tasks">suggested tasks</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">developing without the sdk</li>
+    
+      <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">miscellaneous</li>
+    
+      <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
+      
+    
+      <li> <a href="/wishlist/">sdk dev wishlist</a></li>
+      
+    
+      <li> <a href="/developing/">developing for the sdk</a></li>
+      
+    
+      <li> <a href="/knownissues/">known issues</a></li>
+      
+    
+    </ul>
+  
+</div>
+           </div>
+            <div class="cell medium-10 medium-cell-block-y">
+              <div class="tutorialcontent">
+                <p>The following is a quick summary of all of the nodes in the SDK and what you might use them for:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>node</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/inputs/input.png" alt="input" /></td>
+      <td>input</td>
+      <td>use when you need to perform a task periodically</td>
+      <td>this is a special node that you can use to create periodic events. So for example if you want to call a function every second, you'd hook this node up to the dbfunction node</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/outputs/debugger.png" alt="debugger" /></td>
+      <td>debugger</td>
+      <td>use when you need to view what data is coming out of a node</td>
+      <td>this is a special node that you can use to see what data is coming out of a node, it is an essential part of debugging your app</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/inputs/bulb.png" alt="bulbin" /></td>
+      <td>bulbin</td>
+      <td>use when you need to sense presence or find out the state of hue bulbs</td>
+      <td>this node provides information on the state of a hue bulb, but it also has a presence sensor which indicates if a person has moved in front of a sensor</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/inputs/plug.png" alt="plugin" /></td>
+      <td>plugin</td>
+      <td>use when you need to know whether a plug is on or off, or how much energy it is using</td>
+      <td>this node provides information on the state of a smart plug, including whether it is on or off, and how much power it is currently drawing</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/inputs/sensingkit.png" alt="sensingkit" /></td>
+      <td>sensingkit</td>
+      <td>use when you need access to sensors on a mobile phone</td>
+      <td>this node accesses sensors on a mobile phone, including accelerometer, light readings, battery status and bluetooth scans</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/inputs/osmon.png" alt="osmonitor" /></td>
+      <td>osmonitor</td>
+      <td>use for testing, or when you need information on your databox's resource consumption</td>
+      <td>this node provides information on the cpu and memory of the databox, it is one of the simplest datasources and is commonly used for testing</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/inputs/twitter.png" alt="twitter" /></td>
+      <td>twitter</td>
+      <td>use when you want to subscribe to one or more twitter hashtags</td>
+      <td>this node will subscribe to one or more twitter hashtags and output new tweets as they come in.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/function.png" alt="dbfunction" /></td>
+      <td>dbfunction</td>
+      <td>use when you need to perform some bespoke functionality not supported by any other processing nodes</td>
+      <td>the databox function node.  This is allows you to write javascript functions to operate on incoming data.  More information on the basics of writing functions can be found [here](/tutorials/functions)</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/trigger.png" alt="trigger" /></td>
+      <td>trigger</td>
+      <td>use when you want to trigger an event, then wait before re-triggering e.g to turn on a bulb for a period of time after an event has occurred</td>
+      <td>the trigger node provides a way of creating simple logic of the form [when event happens]-&gt;[do something], and control how often this piece of logic is run (e.g. when presence is seen, turn on bulb for 5 minutes)</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/extract.png" alt="extract" /></td>
+      <td>extract</td>
+      <td>use when you want to pull out specific data attributes from incoming data</td>
+      <td>this node can be used to simplify the data running through your app, by pulling out only the data that you need from an input.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/chartify.png" alt="chartify" /></td>
+      <td>chartify</td>
+      <td>use when you want to plot a simple chart</td>
+      <td>this node feeds the "app" node with data in a format that can be used to display a bar chart or a gauge.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/listify.png" alt="listify" /></td>
+      <td>listify</td>
+      <td>use when you want to list data in rows,columns</td>
+      <td>this node feeds the "app" node with data in a format that can be used to display a list.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/webify.png" alt="webify" /></td>
+      <td>webify</td>
+      <td>use when you want to display data as html</td>
+      <td>this node feeds the "app" node with data in a format that can be used to display html - it uses a templating language called [mustache](https://mustache.github.io/).</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/processors/uibuilder.png" alt="uibuilder" /></td>
+      <td>uibuilder</td>
+      <td>use when you want build data-driven infographics</td>
+      <td>this node allows you to link data to svg graphics.  You can upload your own svg graphics, build simple shapes in the editor or use stock graphics provided by uibuilder</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/outputs/export.png" alt="export" /></td>
+      <td>export</td>
+      <td>use when you want to push data off the databox to an external url</td>
+      <td>this node must be configured with a whitelist of urls that your app can send data to.  You then provide one of the whitelisted urls as input to the node.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/outputs/app.png" alt="app" /></td>
+      <td>app</td>
+      <td>use when you want to display data to a user on the databox</td>
+      <td>this node works with chartify, listify, webify and uibuilder and displays data to a user on the databox dashboard.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/outputs/bulbs.png" alt="bulbsout" /></td>
+      <td>bulbsout</td>
+      <td>use when you want to actuate a philips hue bulb</td>
+      <td>use this node to actuate a philips hue bulb.  You can turn the bulb on or off and adjust its brightness and colour.  Typically works with the dbfunction or trigger node.</td>
+    </tr>
+    
+    <tr>
+      <td><img class="thumbnail" src="/images/nodes/outputs/plug.png" alt="plugout" /></td>
+      <td>plugout</td>
+      <td>use when you want to turn a smart plug on or off</td>
+      <td>use this node to turn a TP-Link smart plug on or off.  Typically works with the dbfunction or trigger node.</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

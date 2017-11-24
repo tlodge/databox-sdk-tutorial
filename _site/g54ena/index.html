@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databox SDK Tutorial : databox sdk primer</title>
+    <link rel="stylesheet" href="/css/foundation/app.css">
+    <link rel="stylesheet" href="/css/foundation/docs.css">
+  </head>
+  <body>
+
+    <div class="grid-y medium-grid-frame">
+      <!-- Start Top Bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">databox</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="https://github.com/me-box/platform-sdk">sdk github</a></li>
+          <li><a href="https://github.com/me-box/databox">databox github</a></li>
+          <li><a href=" http://www.databoxproject.uk">databox project</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+      <div class="callout large primary">
+      <div class="row column text-center">
+        <h2><img src="/images/logo.svg" width="10%"/> databox sdk primer</h2>
+      </div>
+    </div>
+      <div class="cell medium-auto medium-cell-block-container" >
+        <div class="grid-x grid-padding-x" >
+           <div class="cell medium-2 medium-cell-block-y menu">
+            <div>
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">overview</li>
+    
+      <li> <a href="/overview/databox">databox overview</a></li>
+      
+    
+      <li> <a href="/overview/sdk">sdk overview</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">getting started</li>
+    
+      <li> <a href="/gettingstarted/quickstart">quick start</a></li>
+      
+    
+      <li> <a href="/gettingstarted/install">installing databox and the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/sdk">a first look at the sdk</a></li>
+      
+    
+      <li> <a href="/gettingstarted/dashboard">a first look at the dashboard</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">sdk tutorials</li>
+    
+      <li> <a href="/tutorials/visualisations">visualisations</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/visualisations/gauge/">light gauge</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/trump/">trump clock</a></li>
+              
+                  <li> <a href="/tutorials/visualisations/accelerometer/">accelerometer trail</a></li>
+              
+         </ul>
+      
+    
+      <li> <a href="/tutorials/actuation">actuation</a></li>
+      
+    
+      <li> <a href="/tutorials/functions">functions</a></li>
+      
+         <ul class="submenu">
+              
+                  <li> <a href="/tutorials/functions/bulb/">flash bulbs</a></li>
+              
+         </ul>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">G54ENA</li>
+    
+      <li> <a href="/g54ena/">a quick sdk primer</a></li>
+      
+    
+      <li> <a href="/g54ena/nodes">summary of SDK nodes</a></li>
+      
+    
+      <li> <a href="/g54ena/tasks">suggested tasks</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">developing without the sdk</li>
+    
+      <li> <a href="/devlopingwithoutsdk/modifyexisting">modifying existing apps and drivers</a></li>
+      
+    
+    </ul>
+  
+
+  
+    <ul class="menu side">
+      <li class="docs-nav-title">miscellaneous</li>
+    
+      <li> <a href="/miscellaneous/sdkcontainers">sdk containers</a></li>
+      
+    
+      <li> <a href="/wishlist/">sdk dev wishlist</a></li>
+      
+    
+      <li> <a href="/developing/">developing for the sdk</a></li>
+      
+    
+      <li> <a href="/knownissues/">known issues</a></li>
+      
+    
+    </ul>
+  
+</div>
+           </div>
+            <div class="cell medium-10 medium-cell-block-y">
+              <div class="tutorialcontent">
+                <p>The SDK is a visual coding environment for building databox apps.  All you need to get started is a github account.  You can then login at <a href="sdk.iotdatabox.com" target="_blank">https://sdk.iotdatabox.com</a> to start building apps.  This page provides a brief overview of the SDK, and will link to more detail where relevant.  We have then created a set of <a href="/g54ena/tasks">tasks</a> which involve building databox apps.  You do not have to go through these sequentially, and we have grouped them into tasks that require NO programming, and tasks that assume (basic) programming proficiency.  Please feel free to ignore these suggestions and build your own apps.</p>
+
+<h3 id="a-quick-primer">A quick primer</h3>
+
+<p>The SDK is a visual coding environment that requires you to connect together ‘nodes’ into ‘flows’ to create an app.  Apps can be published, after which they can be run on a databox.  Aside from a couple of ‘special’ nodes, nodes will either be <em>datastores</em> (things that create data e.g. twitter, output from a smart plug), <em>processors</em> (things that operate on data, e.g. format it for display, filter out items) or <em>outputs</em> (things that do something with data e.g turn on a bulb).   Typically a flow will consist of one or more datastores connected to one or more processors, connected to one or more outputs:</p>
+
+<h4 id="your-first-flow">Your first flow</h4>
+
+<p>To get started, login at <a href="sdk.iotdatabox.com" target="_blank">https://sdk.iotdatabox.com</a>, and drag the sensingkit datasource onto the main canvas.  Now drag the <strong>debugger</strong> node onto the canvas and connect your datasource output to the debugger input.  That’s it.  You have created your first flow.  All that the debugger node does is display the data that it 
+receives.  To test the output, click on TEST on the top blue toolbar.  This will build the app and run it in a test environment.  After a short while, you should see the debugger node appear on a sidebar on the right hand side.  Click on it and it will open a new tab with the debugger output.  If you go back to the main SDK and double click on the sensingkit node, you’ll see that there are a variety of sensors that you can choose.  Select a different sensor, then click on TEST, and you should see data with a different format from before.</p>
+
+<h4 id="modifying-your-first-flow">Modifying your first flow</h4>
+
+<p>Let’s modify your flow again.  Delete the connection between sensingkit and the debuger.  Now drag in the <strong>chartify</strong> node and the <strong>app</strong> node.  Connect the sensingkit to the chartify node to the app node.  The app node simply displays information on the screen  - in this case it will display whatever comes out of the charifty node.  Double click the sensingkit and select the light source.  Now double click the chartify node.  You’ll see a bunch of options.  For “type” click on gauge.  In the “chart sources” section at the bottom, we want to plot the value of the light source.  Select VALUE under the xvalues heading.  Click on OK, and you are all done.</p>
+
+<p>Click test again, and you should now see that there is an app node in the right hand side sidebar.  Click on it.  This time it should display a gauge, with a circle that moves in response to the change in data.</p>
+
+<h3 id="next-steps">Next steps</h3>
+
+<p>This is all you need to get started playing with the SDK.  You’ll see that there are a bunch of examples of apps that do other things - by all means load them up and take a look.  We have also provided a <a href="/g54ena/nodes">summary of the nodes available</a> in the sdk.  You should have most information that you require to work through a list of <a href="/g54ena/tasks">suggested apps</a>.</p>
+
+
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

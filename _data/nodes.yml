@@ -1,0 +1,90 @@
+- name: input
+  image: /images/nodes/inputs/input.png
+  use: use when you need to perform a task periodically
+  description: this is a special node that you can use to create periodic events. So for example if you want to call a function every second, you'd hook this node up to the dbfunction node
+
+- name: debugger
+  image: /images/nodes/outputs/debugger.png
+  use: use when you need to view what data is coming out of a node
+  description: this is a special node that you can use to see what data is coming out of a node, it is an essential part of debugging your app
+
+- name: bulbin
+  image: /images/nodes/inputs/bulb.png
+  use: use when you need to sense presence or find out the state of hue bulbs
+  description: this node provides information on the state of a hue bulb, but it also has a presence sensor which indicates if a person has moved in front of a sensor
+
+- name: plugin
+  image: /images/nodes/inputs/plug.png
+  use: use when you need to know whether a plug is on or off, or how much energy it is using
+  description: this node provides information on the state of a smart plug, including whether it is on or off, and how much power it is currently drawing
+
+- name: sensingkit
+  image: /images/nodes/inputs/sensingkit.png
+  use: use when you need access to sensors on a mobile phone
+  description: this node accesses sensors on a mobile phone, including accelerometer, light readings, battery status and bluetooth scans
+
+- name: osmonitor
+  image: /images/nodes/inputs/osmon.png
+  use: use for testing, or when you need information on your databox's resource consumption
+  description: this node provides information on the cpu and memory of the databox, it is one of the simplest datasources and is commonly used for testing
+
+- name: twitter
+  image: /images/nodes/inputs/twitter.png
+  use: use when you want to subscribe to one or more twitter hashtags
+  description: this node will subscribe to one or more twitter hashtags and output new tweets as they come in.
+
+- name: dbfunction
+  image: /images/nodes/processors/function.png
+  use: use when you need to perform some bespoke functionality not supported by any other processing nodes
+  description: the databox function node.  This is allows you to write javascript functions to operate on incoming data.  More information on the basics of writing functions can be found [here](/tutorials/functions)
+
+- name: trigger
+  image: /images/nodes/processors/trigger.png
+  use: use when you want to trigger an event, then wait before re-triggering e.g to turn on a bulb for a period of time after an event has occurred
+  description: the trigger node provides a way of creating simple logic of the form [when event happens]->[do something], and control how often this piece of logic is run (e.g. when presence is seen, turn on bulb for 5 minutes)
+
+- name: extract
+  image: /images/nodes/processors/extract.png
+  use: use when you want to pull out specific data attributes from incoming data
+  description: this node can be used to simplify the data running through your app, by pulling out only the data that you need from an input.
+
+- name: chartify
+  image: /images/nodes/processors/chartify.png
+  use: use when you want to plot a simple chart
+  description: this node feeds the "app" node with data in a format that can be used to display a bar chart or a gauge.
+
+- name: listify
+  image: /images/nodes/processors/listify.png
+  use: use when you want to list data in rows,columns
+  description: this node feeds the "app" node with data in a format that can be used to display a list.
+
+- name: webify
+  image: /images/nodes/processors/webify.png
+  use: use when you want to display data as html
+  description: this node feeds the "app" node with data in a format that can be used to display html - it uses a templating language called [mustache](https://mustache.github.io/).
+
+- name: uibuilder
+  image: /images/nodes/processors/uibuilder.png
+  use: use when you want build data-driven infographics
+  description: this node allows you to link data to svg graphics.  You can upload your own svg graphics, build simple shapes in the editor or use stock graphics provided by uibuilder
+
+- name: export
+  image: /images/nodes/outputs/export.png
+  use: use when you want to push data off the databox to an external url
+  description: this node must be configured with a whitelist of urls that your app can send data to.  You then provide one of the whitelisted urls as input to the node.
+
+- name: app
+  image: /images/nodes/outputs/app.png
+  use: use when you want to display data to a user on the databox
+  description: this node works with chartify, listify, webify and uibuilder and displays data to a user on the databox dashboard.
+
+- name: bulbsout
+  image: /images/nodes/outputs/bulbs.png
+  use: use when you want to actuate a philips hue bulb
+  description: use this node to actuate a philips hue bulb.  You can turn the bulb on or off and adjust its brightness and colour.  Typically works with the dbfunction or trigger node.
+
+- name: plugout
+  image: /images/nodes/outputs/plug.png
+  use: use when you want to turn a smart plug on or off
+  description: use this node to turn a TP-Link smart plug on or off.  Typically works with the dbfunction or trigger node.
+

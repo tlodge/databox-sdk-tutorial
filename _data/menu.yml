@@ -35,11 +35,20 @@
         - subtitle: "flash bulbs"
           subhref: "/tutorials/functions/bulb/"
 
+- title: "G54ENA"
+  subcategories:
+    - subtitle: "a quick sdk primer"
+      subhref: "/g54ena/"
+    - subtitle: "summary of SDK nodes"
+      subhref: "/g54ena/nodes"
+    - subtitle: "suggested tasks"
+      subhref: "/g54ena/tasks"
+      
 - title: "developing without the sdk"
   subcategories:
     - subtitle: "modifying existing apps and drivers"
       subhref: "/devlopingwithoutsdk/modifyexisting"
-   
+
 - title: "miscellaneous"
   subcategories:
     - subtitle: "sdk containers"

@@ -3,7 +3,7 @@ layout: base
 title: function tutorials
 ---
 
-This set of tutorials is aimed at getting you writing apps that make use of the **dbfunction** (databox functon) node.  The dbfunction node allows you to write javascript code to process data.  Unlike other nodes, it is relatively unconstrained, and all of the tutorials in this section will make some use of dbfunctions.  
+This set of tutorials is aimed at getting you writing apps that make use of the **dbfunction** (databox functon) node.  The dbfunction node allows you to write javascript code to process data.  Unlike other nodes, it is relatively unconstrained. 
 
 There are a few headline things that you need to know:
 
