@@ -11,12 +11,12 @@ title:  installing databox and the sdk
  - docker
  - git
 
- We also recommend that you install the databox dashboard app, which can be found on Google Play (and Apple's app store..) as this will give you a few sensors to play with.  If you want to use the sdk, you will need a <a href="https://github.com" target="_blank">github</a>account
+ We also recommend that you install the databox dashboard app, which can be found on Google Play (and Apple's app store..) as this will give you a few sensors to play with.  If you want to use the SDK, you will need a <a href="https://github.com" target="_blank">github</a> account
 
 
 ### Installing docker
 
-Instructions for installing docker on mac can be found <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank">here</a>. Instructions for installing on other operating systems can be found [here](https://docs.docker.com/engine/installation/).  Once installed **check that docker is running**.  You should see a whale icon on your mac menu bar (top right hand side), and if you click in that, it should say "Docker is running".
+Instructions for installing docker on mac can be found <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank">here</a>. Instructions for installing on other operating systems can be found [here](https://docs.docker.com/engine/installation/).  Once installed **check that docker is running**.  You should see a whale icon on your mac menu bar (top right-hand side), and if you click in that, it should say "Docker is running".
 
 
 ### Installing git

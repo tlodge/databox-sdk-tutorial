@@ -19,7 +19,7 @@ To run in a web browser, if you are on the same machine as your databox, go to <
 
 ### the dashboard interface.
 
-When you first load up, teh app will attempt to find your databix.  If it fails, you will be prompted to enter the databox address:
+When you first load up, the app will attempt to find your databox.  If it fails, you will be prompted to enter the databox address:
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/dashboard/connectionerror.png" width="30%" alt="dashboard connection error">
@@ -33,7 +33,7 @@ Type in the address that the databox is running on.  Once successful you should 
   <figcaption class="figure-caption text-center">dashboard home screen</figcaption>
 </figure>
 
-On the top right hand of the screen is the menu.  Click on it and you should see the following:
+On the top right-hand of the screen is the menu.  Click on it and you should see the following:
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/dashboard/menu.png" width="30%" alt="dashboard menu">
@@ -75,7 +75,7 @@ Click on **osmonitor** and follow the install instructions.  Once installed, aft
   <figcaption class="figure-caption text-center">driver store, osmonitor</figcaption>
 </figure>
 
-Now you are ready to install the app.  Go to the App Store and select **os monitor**.  You'll be presented with an install dialogue:
+You'll be presented with an install dialogue:
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/dashboard/osmonitorinstall.png" width="30%" alt="app store, install osmonitor">
@@ -96,7 +96,7 @@ You will be prompted to agree to give access to all of them, and once done you s
   <figcaption class="figure-caption text-center">app store, selected datasources</figcaption>
 </figure>
 
-Now click on INSTALL, and after a short delay, you should see osmonitor it listed in the running apps:
+Now click on INSTALL, and after a short delay, you should see osmonitor listed in the running apps:
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/dashboard/osmonitorrunningapplist.png" width="30%" alt="driver store">
@@ -114,7 +114,7 @@ Click on it and you should see a several plots, which are reading live os system
 
 ### installing sensingkit
 
-To get access to a few more sensors, and apps that make use of them, you can enable access to your phone's sensors by installing the sensingkit driver.  Go to the Driver Store page and select sensingkit.  Follow the install instructions:
+To get access to a few more sensors and apps that make use of them, you can enable access to your phone's sensors by installing the sensingkit driver.  Go to the Driver Store page and select sensingkit.  Follow the install instructions:
 
 <figure class="figure">
   <img class="thumbnail" src="/images/gettingstarted/dashboard/installsensingkit.png" width="30%" alt="install sensingkit driver">

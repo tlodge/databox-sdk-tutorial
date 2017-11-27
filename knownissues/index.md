@@ -10,4 +10,4 @@ When you view the uibuilder in chrome fullsreen, if you move an object it will b
 
 - **Low resolution screens**
 
-SDK works on lower-resolution screens, but it's diffcult to use.  Need to tighten up space.
+SDK works on lower-resolution screens, but it's currently diffcult to use.
