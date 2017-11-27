@@ -18,7 +18,14 @@ An app can be tested at any time during its creation.  Once finished, it can be 
 
 #### Your first flow
 
-To get started, login at <a href="https://sdk.iotdatabox.com" target="_blank">https://sdk.iotdatabox.com</a>.  Once logged in, you will be presented with a palette of nodes down the left hand side of the screen and a grey canvas.  Drag the **sensingkit** datasource onto the main canvas.  Now drag the **debugger** node onto the canvas and connect your datasource output to the debugger input.  That's it.  You have created your first flow.  All that the debugger node does is display the data that it receives.  
+To get started, login at <a href="https://sdk.iotdatabox.com" target="_blank">https://sdk.iotdatabox.com</a>.  Once logged in, you will be presented with a palette of nodes down the left hand side of the screen and a grey canvas:
+
+<figure class="figure">
+  <img class="thumbnail" src="/images/gettingstarted/sdk/mainscreen.png" width="50%" alt="sdk main screen">
+  <figcaption class="figure-caption text-center">sdk main screen</figcaption>
+</figure>
+
+Drag the **sensingkit** datasource onto the main canvas.  Now drag the **debugger** node onto the canvas and connect your datasource output to the debugger input.  That's it.  You have created your first flow.  All that the debugger node does is display the data that it receives.  
 
 To test the output, click on TEST on the top blue toolbar.  This will build the app and run it in a test environment.  After a short while, you should see the debugger node appear on a sidebar on the right hand side.  Click on it and it will open a new tab with the debugger output.  If you go back to the SDK screen and double click on the sensingkit node, you'll see that there are a variety of sensors that you can choose.  Select a different sensor, then click on TEST, and you should see data with a different format from before.
 
@@ -30,6 +37,6 @@ Click test again, and you should now see that there is an app node in the right 
 
 ### Next steps
 
-This is all you need to get started playing with the SDK. Go [here](/gettingstarted/sdk) for a fuller overview. You'll see that there are a bunch of examples of apps that do other things - by all means load them up and take a look.  We have also provided a [summary of the nodes available](/g54ena/nodes) in the sdk.  You should have most information that you require to work through a list of [suggested apps](/g54ena/tasks).
+This is all you need to get started with the SDK. Go [here](/gettingstarted/sdk) for a fuller overview. You'll see that there are a bunch of examples of apps that do other things - by all means load them up and take a look.  We have also provided a [summary of the nodes available](/g54ena/nodes) in the sdk.  You should have most information that you require to work through a list of [suggested apps](/g54ena/tasks).
 
 

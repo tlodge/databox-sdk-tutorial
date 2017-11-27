@@ -148,13 +148,13 @@
            </div>
             <div class="cell medium-10 medium-cell-block-y">
               <div class="tutorialcontent">
-                <p>This set of tutorials is aimed at getting you writing apps that make use of the <strong>dbfunction</strong> (databox functon) node.  The dbfunction node allows you to write javascript code to process data.  Unlike other nodes, it is relatively unconstrained.</p>
+                <p>This section provides details on using the <strong>dbfunction</strong> (databox functon) node.  The dbfunction node allows you to write javascript code to process data and unlike other nodes, it is relatively unconstrained.</p>
 
 <p>There are a few headline things that you need to know:</p>
 
 <ul>
   <li>values <strong>returned</strong> by functions are sent as messages. If you do not wish to send a message, simply return nothing.</li>
-  <li>to send multiple outputs, you send an array (item at index 0 is sent on the first output, at index 1 on the second output and so on)</li>
+  <li>to send multiple outputs, you return an array (item at index 0 is sent on the first output, at index 1 on the second output and so on), and explicitly set the number of outputs in the outputs dropdown (currently limited to 5).</li>
   <li>you are able to import npm libraries.  When you subsequently test a function a new container is built with any imported libraries installed.</li>
   <li>functions can store and access data to use between invocations using a  <strong>context</strong> object:</li>
 </ul>
@@ -168,10 +168,15 @@
 </div>
 
 <ul>
-  <li>Several nodes need to know the ‘shape’ of data that they are receiving as input.  If the function nodes is sending data to one of these nodes, then it has to specify its schema.</li>
+  <li>
+    <p>Several nodes need to know the ‘shape’ of data that they are receiving as input (e.g. uibuilder).  If the function node sends data to one of these nodes, then it has to specify its schema.   The node will try and do this automatically, but you may need to add further detail.</p>
+  </li>
+  <li>
+    <p>If you connect the input and output nodes to a dbfunction before you write code, you can get the node to create skeleton code to ensure that the inputs and outputs conform to what is expected.</p>
+  </li>
 </ul>
 
-<p>The following tutorials make use of functions in some way</p>
+<p>The following tutorials make use of functions in some way:</p>
 
 <table>
   <thead>
