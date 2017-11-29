@@ -14,10 +14,11 @@ The following is a list of suggestions of apps that you could build with the SDK
 
 #### tasks requiring code
 
-The following suggestions will require you to write code using the databox function node (dbfunction).  Befpre you start, we recommend that you read the quick [primer on writing databox functions](/tutorials/functions):
+The following suggestions will require you to write code using the databox function node (dbfunction).  Before you start, we recommend that you read the quick [primer on writing databox functions](/tutorials/functions):
 
 * Turn a bulb on when presence has been detected and leave on for a minute
-* When the power of a plugged in device exceeds 1500W, turn on a bulb.  Turn it off when it dips below.
+* When the power of a plugged in device exceeds 250W, turn on a bulb.  Turn it off when it dips below.
 * Display a digital clock on the screen
 * Make three bulbs count up in a binary sequence
 * Progressively reveal the line of a story each time a phone is vigorously (i.e. sqrt(x^2+y^2+z^2) > 45) shaken.
+* Turn a bulb and plug on when a tweet of the form '#yourname coming home' is sent, turn them off when a tweet of the form '#yourname left for work' is sent.  Extend this by showing whether the bulbs are on or off.  
