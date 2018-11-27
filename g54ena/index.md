@@ -31,7 +31,7 @@ To test the output, click on TEST on the top blue toolbar.  This will build the 
 
 #### Modifying your first flow
 
-Let's modify your flow again.  Delete the connection between sensingkit and the debuger.  Now drag in the **chartify** node and the **app** node.  Connect the sensingkit to the chartify node to the app node.  The app node simply displays information on the screen  - in this case it will display whatever comes out of the charifty node.  Double click the sensingkit and select the light source.  Now double click the chartify node.  You'll see a bunch of options.  For "type" click on gauge.  In the "chart sources" section at the bottom, we want to plot the value of the light source.  Select VALUE under the xvalues heading.  Click on OK, and you are all done.
+Let's modify your flow again.  Delete the connection between sensingkit and the debuger.  Now drag in the **chartify** node and the **app** node.  Connect the sensingkit to the chartify node, and connect the chartofy node to the app node.  The app node simply displays information on the screen  - in this case it will display whatever comes out of the charifty node.  Double click the sensingkit and select the light source.  Now double click the chartify node.  You'll see a bunch of options.  For "type" click on gauge.  In the "chart sources" section at the bottom, we want to plot the value of the light source.  Select VALUE under the xvalues heading.  Click on OK, and you are all done.
 
 Click test again, and you should now see that there is an app node in the right hand side sidebar.  Click on it.  This time it should display a gauge, with a circle that moves in response to the change in data.
 
